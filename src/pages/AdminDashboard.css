@@ -1,0 +1,73 @@
+/* OUTER BACKGROUND */
+.admin-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: #f5f5f5;
+}
+
+/* WHITE LIGHT BOX */
+.admin-box {
+  width: 1150px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+/* ROW */
+.admin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-star;
+}
+
+/* LEFT SIDE */
+.admin-sidebar {
+  width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* HEADING */
+.admin-heading {
+  
+  padding-left: 120px;
+  line-height: 1.4;
+  display: block;
+  
+}
+
+/* BUTTON STYLE */
+.admin-sidebar button {
+  width: 80%;              /* 🔥 ADD THIS */
+  padding: 14px 18px;
+  background: #1f4e79;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.admin-sidebar button:hover {
+  background: #163d5c;
+  transform: translateX(5px);   /* thoda slide effect */
+}
+
+/* IMAGE SIDE */
+.admin-content {
+width: 45%;
+padding-top: 120px;
+}
+
+
+.dashboard-img {
+  width: 420px;
+  height: auto;
+  margin-top: 60px;
+}

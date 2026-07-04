@@ -1,0 +1,40 @@
+.details-container{
+padding:40px;
+}
+
+.details-title{
+background:#eee;
+padding:10px;
+border:1px solid #ccc;
+}
+
+.details-box{
+margin-top:20px;
+position:relative;
+display:flex;
+align-items:flex-start;
+gap:40px;
+}
+
+.details-box table{
+width:70%;
+border-collapse:collapse;
+}
+
+.details-box td{
+border:1px solid #ccc;
+padding:12px;
+}
+
+.label{
+background:#f2f2f2;
+width:120px;
+}
+
+.details-icon img{
+width:90px;
+padding:10px;
+border-radius:50%;
+border:3px solid orange;
+background:white;
+}

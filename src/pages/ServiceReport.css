@@ -1,0 +1,97 @@
+.page-title{
+background:#e6e6e6;
+padding:15px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.search-box{
+width:70%;
+margin:auto;
+display:flex;
+align-items:center;
+gap:10px;
+border:1px solid #ccc;
+padding:10px;
+margin-bottom:15px;
+}
+
+.search-box input{
+flex:1;
+padding:8px;
+border:1px solid #ccc;
+border-radius:3px;
+}
+
+.search-btn{
+background:#1e4f6b;
+color:white;
+border:none;
+padding:8px 15px;
+cursor:pointer;
+}
+
+.reset-btn{
+background:#888;
+color:white;
+border:none;
+padding:8px 15px;
+cursor:pointer;
+}
+
+.add-btn{
+background:green;
+color:white;
+border:none;
+padding:8px 12px;
+margin-left:15%;
+margin-bottom:10px;
+cursor:pointer;
+}
+
+.table-container{
+width:70%;
+margin:auto;
+background:white;
+border:1px solid #ddd;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+thead{
+background:#1e4f6b;
+color:white;
+}
+
+th,td{
+padding:10px;
+text-align:left;
+border-bottom:1px solid #ddd;
+}
+
+.service-img{
+width:35px;
+height:35px;
+}
+
+.edit-btn{
+background:green;
+color:white;
+border:none;
+padding:5px 8px;
+margin-right:5px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:red;
+color:white;
+border:none;
+padding:5px 8px;
+cursor:pointer;
+}

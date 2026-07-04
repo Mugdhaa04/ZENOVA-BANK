@@ -1,0 +1,172 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./AccountReport.css";
+
+function AccountReport() {
+
+  const [accounts, setAccounts] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
+
+  // 🔥 Fetch data
+  useEffect(() => {
+    fetch("http://localhost:3001/accounts")
+      .then(res => res.json())
+      .then(data => setAccounts(data));
+  }, []);
+
+  // 🔥 Search filter
+  const filteredData = accounts.filter(acc =>
+    (acc.name || "").toLowerCase().includes(search.toLowerCase())
+  );
+
+  // 🔥 Delete
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure?");
+    if (!confirmDelete) return;
+
+    await fetch(`http://localhost:3001/accounts/${id}`, {
+      method: "DELETE",
+    });
+
+    setAccounts(prev =>
+      prev.filter(acc => acc.id !== id)
+    );
+  };
+
+  // 🔥 Status toggle
+  const toggleStatus = (id) => {
+    setAccounts(prev =>
+      prev.map(acc =>
+        acc.id === id
+          ? { ...acc, active: !acc.active }
+          : acc
+      )
+    );
+  };
+
+  return (
+    <div className="account-report-page">
+
+      <div className="report-title">
+        All Account Report
+      </div>
+
+      <div className="report-container">
+
+        {/* Search */}
+        <div className="search-box">
+          <label>Search :</label>
+
+          <input
+            type="text"
+            placeholder="Search Account"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <button>Search</button>
+
+          <button
+            className="reset-btn"
+            onClick={() => setSearch("")}
+          >
+            Reset
+          </button>
+        </div>
+
+        {/* Add Button */}
+        <button
+          className="add-btn"
+          onClick={() => navigate("/add-user")}
+        >
+          Add New Account
+        </button>
+
+        {/* Table */}
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer Name</th>
+              <th>Photo</th>
+              <th>Account Type</th>
+              <th>Mobile</th>
+              <th>Email</th>
+              <th>Branch Name</th>
+              <th>Opening Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {filteredData.map((acc) => (
+              <tr key={acc.id}>
+                <td>{acc.id}</td>
+                <td>{acc.name}</td>
+                <td>
+                  <img src="https://via.placeholder.com/40" alt="" />
+                </td>
+                <td>{acc.type}</td>
+                <td>{acc.mobile}</td>
+                <td>{acc.email}</td>
+                <td>{acc.branch}</td>
+                <td>{acc.date}</td>
+
+                <td className="action-buttons">
+
+                  {/* 👁 Transfer */}
+                  <button
+                    className="icon-btn view"
+                    onClick={() => navigate("/transfer-report")}
+                  >
+                    <i className="fas fa-eye"></i>
+                  </button>
+
+                  {/* ✏️ Transaction */}
+                  <button
+                    className="icon-btn edit"
+                    onClick={() => navigate("/transaction-report")}
+                  >
+                    <i className="fas fa-pen"></i>
+                  </button>
+
+                  {/* 📄 History */}
+                  <button
+                    className="icon-btn copy"
+                    onClick={() => navigate("/kyc-report")}
+                  >
+                    <i className="fas fa-copy"></i>
+                  </button>
+
+                  {/* 🔄 Status */}
+                  <button
+                    className="icon-btn status"
+                    onClick={() => toggleStatus(acc.id)}
+                  >
+                    <i className={acc.active ? "fas fa-toggle-on" : "fas fa-toggle-off"}></i>
+                  </button>
+
+                  {/* 🗑 Delete */}
+                  <button
+                    className="icon-btn delete"
+                    onClick={() => handleDelete(acc.id)}
+                  >
+                    <i className="fas fa-trash"></i>
+                  </button>
+
+                </td>
+
+              </tr>
+            ))}
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+  );
+}
+
+export default AccountReport;

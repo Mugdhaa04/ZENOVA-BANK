@@ -1,0 +1,604 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin123@gmail.com",
+      "password": "1234",
+      "role": "admin",
+      "name": "Admin",
+      "mobile": "9999999999",
+      "city": "Pune",
+      "balance": 0
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "1234",
+      "role": "user",
+      "name": "Rahul Sharma",
+      "mobile": "9876543210",
+      "city": "Mumbai",
+      "balance": 50000
+    },
+    {
+      "id": 3,
+      "email": "mugdha@gmail.com",
+      "password": "mugdha123",
+      "role": "user",
+      "name": "Mugdha Shinde",
+      "mobile": "9123456780",
+      "city": "Pune",
+      "balance": 75000
+    },
+    {
+      "id": 4,
+      "email": "test1@gmail.com",
+      "password": "1234",
+      "role": "user",
+      "name": "Amit Kumar",
+      "mobile": "9012345678",
+      "city": "Delhi",
+      "balance": 20000
+    },
+    {
+      "id": 5,
+      "email": "test2@gmail.com",
+      "password": "1234",
+      "role": "user",
+      "name": "Sneha Patil",
+      "mobile": "9090909090",
+      "city": "Nagpur",
+      "balance": 30000
+    },
+    {
+      "id": 6,
+      "email": "mugdhashinde27@gmail.com",
+      "password": "1234",
+      "role": "user",
+      "name": "Mugdha Shinde",
+      "mobile": "9359749993",
+      "city": "Pune",
+      "balance": 60000
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2026-03-01",
+      "amount": 10000,
+      "transactionType": "Deposit",
+      "transferMethod": "Cash"
+    },
+    {
+      "id": 2,
+      "date": "2026-03-02",
+      "amount": 5000,
+      "transactionType": "Withdraw",
+      "transferMethod": "ATM"
+    },
+    {
+      "id": 3,
+      "date": "2026-03-03",
+      "amount": 20000,
+      "transactionType": "Deposit",
+      "transferMethod": "Online"
+    },
+    {
+      "id": 4,
+      "date": "2026-03-04",
+      "amount": 1500,
+      "transactionType": "Withdraw",
+      "transferMethod": "UPI"
+    },
+    {
+      "id": 5,
+      "date": "2026-03-05",
+      "amount": 8000,
+      "transactionType": "Deposit",
+      "transferMethod": "Cheque"
+    },
+    {
+      "id": 6,
+      "date": "2026-03-06",
+      "amount": 2500,
+      "transactionType": "Withdraw",
+      "transferMethod": "ATM"
+    },
+    {
+      "id": 7,
+      "date": "2026-03-07",
+      "amount": 12000,
+      "transactionType": "Deposit",
+      "transferMethod": "Online"
+    },
+    {
+      "id": 8,
+      "date": "2026-03-08",
+      "amount": 3000,
+      "transactionType": "Withdraw",
+      "transferMethod": "UPI"
+    },
+    {
+      "id": 9,
+      "date": "2026-03-09",
+      "amount": 22000,
+      "transactionType": "Deposit",
+      "transferMethod": "Cash"
+    },
+    {
+      "id": 10,
+      "date": "2026-03-10",
+      "amount": 4000,
+      "transactionType": "Withdraw",
+      "transferMethod": "ATM"
+    },
+    {
+      "id": 11,
+      "date": "2026-03-11",
+      "amount": 2000,
+      "transactionType": "Deposit",
+      "transferMethod": "Cash"
+    },
+    {
+      "id": 12,
+      "date": "2026-03-12",
+      "amount": 5000,
+      "transactionType": "Deposit",
+      "transferMethod": "Online"
+    },
+    {
+      "id": 13,
+      "date": "2026-03-13",
+      "amount": 7000,
+      "transactionType": "Withdraw",
+      "transferMethod": "UPI"
+    },
+    {
+      "id": 14,
+      "date": "2026-03-14",
+      "amount": 16000,
+      "transactionType": "Deposit",
+      "transferMethod": "Cheque"
+    },
+    {
+      "id": 15,
+      "date": "2026-03-15",
+      "amount": 3500,
+      "transactionType": "Withdraw",
+      "transferMethod": "ATM"
+    },
+    {
+      "id": 16,
+      "date": "2026-03-16",
+      "amount": 9000,
+      "transactionType": "Deposit",
+      "transferMethod": "Online"
+    },
+    {
+      "id": 18,
+      "date": "2026-03-18",
+      "amount": 30000,
+      "transactionType": "Deposit",
+      "transferMethod": "Cash"
+    },
+    {
+      "id": 19,
+      "date": "2026-03-19",
+      "amount": 6000,
+      "transactionType": "Withdraw",
+      "transferMethod": "ATM"
+    },
+    {
+      "id": 20,
+      "date": "2026-03-20",
+      "amount": 11000,
+      "transactionType": "Deposit",
+      "transferMethod": "Online"
+    },
+    {
+      "accountNumber": "12",
+      "transactionType": "Deposit",
+      "transferMethod": "Cheque",
+      "amount": "1400",
+      "date": "2026-03-21",
+      "description": "---",
+      "id": 21
+    },
+    {
+      "accountNumber": "15",
+      "transactionType": "Deposit",
+      "transferMethod": "Online",
+      "amount": "6000",
+      "date": "2026-03-21",
+      "description": "--",
+      "id": 22
+    },
+    {
+      "accountNumber": "17",
+      "transactionType": "Deposit",
+      "transferMethod": "Cash",
+      "amount": "17000",
+      "date": "2026-03-25",
+      "description": "..",
+      "id": 23
+    },
+    {
+      "accountNumber": "19",
+      "transactionType": "Withdraw",
+      "transferMethod": "Online",
+      "amount": "5000",
+      "date": "2026-03-17",
+      "description": "..",
+      "id": 24
+    },
+    {
+      "accountNumber": "",
+      "transactionType": "",
+      "transferMethod": "",
+      "amount": "",
+      "date": "",
+      "description": "",
+      "id": 25
+    },
+    {
+      "accountNumber": "",
+      "transactionType": "",
+      "transferMethod": "",
+      "amount": "",
+      "date": "",
+      "description": "",
+      "id": 26
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Personal Loan",
+      "image": "/images/personal.png"
+    },
+    {
+      "id": 2,
+      "name": "Home Loan",
+      "image": "/images/home.png"
+    },
+    {
+      "id": 3,
+      "name": "Vehicle Loan",
+      "image": "/images/vehicle.png"
+    },
+    {
+      "id": 4,
+      "name": "Gold Loan",
+      "image": "/images/gold.png"
+    },
+    {
+      "id": 5,
+      "name": "Saving Account",
+      "image": "/images/saving.png"
+    },
+    {
+      "id": 6,
+      "name": "Fixed Deposit",
+      "image": "/images/fixed.png"
+    },
+    {
+      "id": 7,
+      "name": "Business Loan",
+      "image": "/images/business.png"
+    },
+    {
+      "id": 8,
+      "name": "Internet Banking",
+      "image": "/images/bank.png"
+    },
+    {
+      "id": 9,
+      "name": "Customer Care",
+      "image": "/images/customer.png"
+    },
+    {
+      "id": 10,
+      "name": "Credit Cards",
+      "image": "/images/credit.png"
+    },
+    {
+      "id": 11,
+      "name": "Currency Exchange",
+      "image": "/images/currency.png"
+    },
+    {
+      "id": 12,
+      "name": "ATM Service",
+      "image": "/images/atm.png"
+    }
+  ],
+  "slides": [
+    {
+      "id": 1,
+      "image": "/images/slide1.jpg"
+    },
+    {
+      "id": 2,
+      "image": "/images/slide2.jpg"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "name": "Mugdha Shinde",
+      "email": "mugdhashinde27@gmail.com",
+      "rating": "Good",
+      "message": "Excellent banking service"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Mugdha Shinde",
+      "type": "Saving Account",
+      "mobile": "9123456789",
+      "email": "mugdha@gmail.com",
+      "branch": "SBI",
+      "date": "10-Feb-2023"
+    },
+    {
+      "id": 2,
+      "name": "Amit Kumar",
+      "type": "Saving Account",
+      "mobile": "9012345678",
+      "email": "amit@gmail.com",
+      "branch": "SBI",
+      "date": "12-Jan-2023"
+    },
+    {
+      "id": 3,
+      "name": "Priya Patil",
+      "type": "Current Account",
+      "mobile": "9876543210",
+      "email": "priya@gmail.com",
+      "branch": "HDFC",
+      "date": "05-Feb-2023"
+    },
+    {
+      "id": 4,
+      "name": "Rohit Verma",
+      "type": "Saving Account",
+      "mobile": "8888888888",
+      "email": "rohit@gmail.com",
+      "branch": "ICICI",
+      "date": "15-Mar-2023"
+    },
+    {
+      "id": 5,
+      "name": "Sneha Kulkarni",
+      "type": "Saving Account",
+      "mobile": "9876501234",
+      "email": "sneha@gmail.com",
+      "branch": "Axis Bank",
+      "date": "20-Mar-2023"
+    },
+    {
+      "id": 6,
+      "name": "Karan Patel",
+      "type": "Current Account",
+      "mobile": "9988776654",
+      "email": "karan@gmail.com",
+      "branch": "Bank of Baroda",
+      "date": "25-Mar-2023"
+    }
+  ],
+  "transfers": [
+    {
+      "id": 1,
+      "date": "2023-09-12",
+      "amount": 5000,
+      "beneficiary": "Rahul Sharma",
+      "contact": "9876543210",
+      "bank": "SBI",
+      "accountNumber": "1234567890",
+      "ifsc": "SBIN000123",
+      "type": "Saving"
+    },
+    {
+      "id": 2,
+      "date": "2023-09-15",
+      "amount": 2000,
+      "beneficiary": "Priya Patil",
+      "contact": "9123456780",
+      "bank": "HDFC",
+      "accountNumber": "9876543210",
+      "ifsc": "HDFC000456",
+      "type": "Current"
+    },
+    {
+      "id": 3,
+      "date": "2023-09-18",
+      "amount": 7000,
+      "beneficiary": "Amit Verma",
+      "contact": "9988776655",
+      "bank": "ICICI",
+      "accountNumber": "4567891230",
+      "ifsc": "ICIC000789",
+      "type": "Saving"
+    },
+    {
+      "id": 4,
+      "date": "2023-09-20",
+      "amount": 3000,
+      "beneficiary": "Neha Joshi",
+      "contact": "9876512340",
+      "bank": "Axis Bank",
+      "accountNumber": "1122334455",
+      "ifsc": "UTIB000123",
+      "type": "Saving"
+    },
+    {
+      "id": 5,
+      "date": "2023-09-22",
+      "amount": 4500,
+      "beneficiary": "Rohit Deshmukh",
+      "contact": "9765432109",
+      "bank": "HDFC",
+      "accountNumber": "2233445566",
+      "ifsc": "HDFC000789",
+      "type": "Current"
+    },
+    {
+      "id": 6,
+      "date": "2023-09-25",
+      "amount": 6000,
+      "beneficiary": "Pooja Sharma",
+      "contact": "9123456781",
+      "bank": "ICICI",
+      "accountNumber": "3344556677",
+      "ifsc": "ICIC000456",
+      "type": "Saving"
+    },
+    {
+      "id": 7,
+      "date": "2023-09-27",
+      "amount": 2500,
+      "beneficiary": "Karan Patel",
+      "contact": "9988776654",
+      "bank": "SBI",
+      "accountNumber": "4455667788",
+      "ifsc": "SBIN000987",
+      "type": "Current"
+    },
+    {
+      "id": 8,
+      "date": "2023-09-30",
+      "amount": 8000,
+      "beneficiary": "Sneha Kulkarni",
+      "contact": "9876501234",
+      "bank": "Bank of Baroda",
+      "accountNumber": "5566778899",
+      "ifsc": "BARB000321",
+      "type": "Saving"
+    },
+    {
+      "accountNumber": "5677778977",
+      "transferType": "RTGS",
+      "amount": "5677",
+      "date": "2026-03-28",
+      "description": "--",
+      "id": 9
+    },
+    {
+      "accountNumber": "7879686667",
+      "transferType": "NEFT",
+      "amount": "7000",
+      "date": "2026-03-28",
+      "description": "--",
+      "id": 10
+    },
+    {
+      "accountNumber": "",
+      "transferType": "",
+      "amount": "",
+      "date": "",
+      "description": "",
+      "id": 11
+    },
+    {
+      "accountNumber": "",
+      "transferType": "",
+      "amount": "",
+      "date": "",
+      "description": "",
+      "id": 12
+    },
+    {
+      "accountNumber": "657849809887788",
+      "transferType": "RTGS",
+      "amount": "5990",
+      "date": "2026-06-28",
+      "description": "--",
+      "id": 13
+    },
+    {
+      "accountNumber": "",
+      "transferType": "",
+      "amount": "",
+      "date": "",
+      "description": "",
+      "id": 14
+    }
+  ],
+  "kyc": [
+    {
+      "id": 1,
+      "documentType": "PAN Card",
+      "documentNumber": "123456789012",
+      "idProof": "images/pancard.png"
+    },
+    {
+      "id": 2,
+      "documentType": "Passport",
+      "documentNumber": "ABCDE1234F",
+      "idProof": "images/passport.png"
+    },
+    {
+      "id": 3,
+      "documentType": "Aadhar Card",
+      "documentNumber": "P1234567",
+      "idProof": "images/vaishali.png"
+    },
+    {
+      "id": 4,
+      "documentType": "Passport",
+      "documentNumber": "987654321098",
+      "idProof": "images/athrav.png"
+    },
+    {
+      "id": 5,
+      "documentType": "Passport",
+      "documentNumber": "P7654321",
+      "idProof": "images/vijay.png"
+    }
+  ],
+  "beneficiaries": [
+    {
+      "name": "MUGDHA VIJAYKUMAR SHINDE",
+      "mobile": "09373511516",
+      "email": "mugdhashinde27@gmail.com",
+      "address": "at latur",
+      "city": "pune",
+      "state": "Maharashtra",
+      "country": "India",
+      "accountNumber": "657849809887788",
+      "accountType": "Saving Account",
+      "ifsc": "SBIN0001234",
+      "bankName": "SBI",
+      "id": 1
+    },
+    {
+      "name": "",
+      "mobile": "",
+      "email": "",
+      "address": "",
+      "city": "",
+      "state": "",
+      "country": "",
+      "accountNumber": "",
+      "accountType": "",
+      "ifsc": "",
+      "bankName": "",
+      "id": 2
+    },
+    {
+      "name": "",
+      "mobile": "",
+      "email": "",
+      "address": "",
+      "city": "",
+      "state": "",
+      "country": "",
+      "accountNumber": "",
+      "accountType": "",
+      "ifsc": "",
+      "bankName": "",
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+.transaction-page .page-title{
+background:#e6e6e6;
+padding:15px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.transaction-page .sub-heading{
+width:50%;
+margin:auto;
+margin-bottom:10px;
+font-weight:600;
+color:#444;
+}
+
+.transaction-page .form-container{
+width:50%;
+margin:auto;
+background:white;
+padding:30px;
+border:1px solid #ddd;
+border-radius:5px;
+}
+
+.transaction-page .form-group{
+display:flex;
+flex-direction:row;   /* important fix */
+align-items:center;
+margin-bottom:15px;
+}
+
+.transaction-page .form-group label{
+width:150px;
+font-weight:600;
+}
+
+.transaction-page .form-group input,
+.transaction-page .form-group select,
+.transaction-page .form-group textarea{
+flex:1;
+padding:8px;
+border:1px solid #ccc;
+border-radius:3px;
+}
+
+.transaction-page textarea{
+height:60px;
+}
+
+.transaction-page .btn-group{
+margin-top:20px;
+margin-left:150px;
+}
+
+.transaction-page .btn-group button{
+padding:8px 18px;
+margin-right:10px;
+border:none;
+background:#1f5a7a;
+color:white;
+cursor:pointer;
+border-radius:3px;
+}
+
+.transaction-page .btn-group button:last-child{
+background:#777;
+}

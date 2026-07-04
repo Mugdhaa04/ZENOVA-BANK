@@ -1,0 +1,65 @@
+.admin-navbar {
+ background-color: #0b3d5c;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+}
+
+/* Logo text white */
+.logo {
+  color: white;
+  font-weight: bold;
+}
+
+/* Nav menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* 🔥 NAV LINK WHITE */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 🔥 ACTIVE LINK */
+.nav-link.active {
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 4px;
+  color: white;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  color: black;
+  width: 200px;
+  padding: 10px 0;
+  border-radius: 6px;
+  list-style: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+  
+.dropdown-menu li {
+  padding: 8px 15px;
+}
+
+.dropdown-menu li:hover {
+  background: #f2f2f2;
+}
+

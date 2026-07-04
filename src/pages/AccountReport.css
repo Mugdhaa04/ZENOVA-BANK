@@ -1,0 +1,140 @@
+.account-report-page{
+  background:#f2f2f2;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* Title */
+.report-title{
+  background:#e6e6e6;
+  padding:15px;
+  text-align:center;
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:20px;
+  color:#2c5d86;
+}
+
+/* Container */
+.report-container{
+  width:90%;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border:1px solid #ddd;
+}
+
+/* Search */
+.search-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.search-box label{
+  font-weight:600;
+}
+
+.search-box input{
+  width:250px;
+  padding:6px;
+  border:1px solid #ccc;
+}
+
+.search-box button{
+  padding:6px 12px;
+  border:none;
+  background:#1f5a7a;
+  color:white;
+  cursor:pointer;
+}
+
+.reset-btn{
+  background:#777;
+}
+
+/* Add button */
+.add-btn{
+  background:#1f5a7a;
+  color:white;
+  border:none;
+  padding:6px 14px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+/* Table */
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+table th{
+  background:#1f5a7a;
+  color:white;
+  padding:8px;
+  font-size:14px;
+}
+
+table td{
+  border:1px solid #ddd;
+  padding:8px;
+  font-size:13px;
+  text-align:center;
+}
+
+table img{
+  width:40px;
+  height:40px;
+  border-radius:4px;
+}
+
+/* Actions */
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+/* Common button */
+.icon-btn {
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: white;
+  font-size: 13px;
+}
+
+/* EXACT video colors */
+
+/* View (light blue) */
+.view {
+  background-color: #100562;
+}
+
+/* Edit (dark grey) */
+.edit {
+  background-color: #064409;
+}
+
+/* Copy (blue) */
+.copy {
+  background-color: #007bff;
+}
+
+/* Status (green) */
+.status {
+  background-color: #28a745;
+}
+
+/* Delete (red) */
+.delete {
+  background-color: #8d0d19;
+}
+
+/* hover effect (optional but pro look) */
+.icon-btn:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,88 @@
+/* Header */
+.kyc-header{
+  background:#e6e6e6;
+  padding:15px;
+  text-align:center;
+}
+
+.kyc-header h2{
+  margin:0;
+  color:#2c5d86;
+}
+
+/* Form container center */
+.kyc-container{
+  width:650px;
+  margin:30px auto;
+}
+
+/* Title */
+.kyc-container h3{
+  margin-bottom:5px;
+  text-align:center;   /* heading center */
+}
+
+/* Line under title */
+.kyc-container hr{
+  width: 1000px;        
+  border:none;
+  border-top:1px solid #ccc;
+  margin-top:5px;
+  margin-bottom:20px;
+  margin: left 120px;     
+}
+
+/* Form rows */
+.kyc-container .form-row{
+  display:flex;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+/* Labels */
+.kyc-container .form-row label{
+  width:170px;
+  font-weight:500;
+}
+
+/* Inputs */
+.kyc-container .form-row input,
+.kyc-container .form-row select{
+  width:350px;
+  padding:7px;
+  border:1px solid #ccc;
+  border-radius:3px;
+}
+
+/* Textarea */
+.kyc-container .form-row textarea{
+  width:350px;
+  height:80px;
+  padding:7px;
+  border:1px solid #ccc;
+  border-radius:3px;
+}
+
+/* Button row */
+.btn-row{
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+}
+
+.submit,
+.reset{
+  background:#1f5f8b;
+  color:white;
+  border:none;
+  padding:4px 10px;
+  font-size:13px;
+  border-radius:3px;
+  cursor:pointer;
+  margin:0 6px;
+  width:auto;
+}
+
+.reset{
+  background:#2c6d9b;
+}

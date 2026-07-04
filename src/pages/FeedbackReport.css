@@ -1,0 +1,75 @@
+.feedback-page {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+
+
+/* TITLE BAR */
+.main-title {
+  text-align: center;
+  background: #e6e6e6;
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* BOX */
+.box {
+  width: 90%;
+  margin: 20px auto;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.box h3 {
+  background: #f2f2f2;
+  padding: 10px;
+  font-size: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #0b3d5c;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* STRIPES */
+tbody tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* BUTTONS */
+button {
+  border: none;
+  padding: 5px 8px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.view {
+  background: #4da6ff;
+  color: white;
+}
+
+.delete {
+  background: red;
+  color: white;
+}
+
