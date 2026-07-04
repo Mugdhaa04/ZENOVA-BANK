@@ -25,7 +25,7 @@ import ServiceDetails from "./pages/ServiceDetails";
 import Feedback from "./pages/Feedback";
 import AddTransaction from "./pages/AddTransaction";
 import AddUser from "./pages/AddUser";
-import AddKyc from "./pages/AddKyc";
+import Addkyc from "./pages/AddKYC";
 import AddAccount from "./pages/AddAccount";
 import ServiceReport from "./pages/ServiceReport";
 import CustomerReport from "./pages/CustomerReport";
@@ -219,7 +219,7 @@ function App() {
     <ProtectedRoute>
       <>
         <AdminNavbar />
-        <AddKyc />
+        <AddKYC />
       </>
     </ProtectedRoute>
   }
