@@ -1,5 +1,5 @@
 import React from "react";
-import "./AddKyc.css";
+import "./AddKYC.css";
 
 function AddKyc() {
   return (
