@@ -48,15 +48,17 @@ body{
 .menu a:hover {
   border-bottom: 2px solid white;
 }
-@media (max-width: 768px) {
+@media (max-width:768px){
 
   .navbar{
     flex-direction: column;
-    padding: 15px 20px;
+    align-items: center;
+    padding: 15px;
     gap: 15px;
   }
 
   .logo{
+    justify-content: center;
     font-size: 18px;
   }
 
@@ -65,14 +67,18 @@ body{
   }
 
   .menu{
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
   }
 
   .menu a,
   .menu span{
-    font-size: 14px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
 }
