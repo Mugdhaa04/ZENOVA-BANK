@@ -18,7 +18,7 @@
 
 /* ===== MAIN CONTAINER (VERY IMPORTANT) ===== */
 .about-container {
-  width: 1000px;           /* 🔥 compact like video */
+  width: 90px;           /* 🔥 compact like video */
   margin: 0 auto;
   padding: 30px 0;
 }
@@ -29,11 +29,11 @@
   font-size: 20px;
 }
 
-.about-container p {
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 18px;
-  color: #555;
+.about-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 0;
 }
 
 /* ===== LOWER SECTION ===== */
@@ -99,4 +99,42 @@
   height: auto;
   max-height: 300px;   /* 🔥 slightly bigger */
   object-fit: contain;
+}
+@media (max-width:768px){
+
+  .about-container{
+    width:95%;
+    padding:20px 10px;
+  }
+
+  .about-lower{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .features{
+    width:100%;
+  }
+
+  .about-image{
+    width:100%;
+    justify-content:center;
+    margin-top:20px;
+  }
+
+  .about-image img{
+    width:80%;
+    max-height:none;
+  }
+
+  .feature-item{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .feature-item p{
+    max-width:100%;
+  }
+
 }
