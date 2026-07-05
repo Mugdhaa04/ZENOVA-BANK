@@ -1,5 +1,19 @@
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
+html,body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+.home-container{
+  width:100%;
+  overflow:hidden;
+}
 /* SLIDER */
 .slider-img {
   width: 100%;
@@ -10,7 +24,7 @@
 /* MAIN SECTION */
 .main-text {
   text-align: center;
-  padding: 60px 200px 5px;
+  padding: 60px 80px 20px;
   background: #f4f6f9;
 }
 
@@ -74,11 +88,7 @@
   margin-bottom: 15px;
 }
 
-.second-text {
-  background: #f4f6f9;
-  padding: 5px 150px 0px 150px;
-  margin: 0;
-}
+
 
 .second-text h2 {
   margin-top: 0;
@@ -99,15 +109,14 @@
 
 .services-wrapper {
   overflow: hidden;
-  padding: 30px 150px 60px;
+  padding: 30px 40px;
   background: white;
 }
 
-.services-track {
-  display: flex;
-  gap: 60px;
-  width: max-content;
-  margin-bottom: 40px;
+.services-track{
+  display:flex;
+  gap:60px;
+  margin-bottom:40px;
 }
 
 /* FAST SPEED */
@@ -130,7 +139,7 @@
 }
 
 .service-card {
-  min-width: 200px;
+  min-width: 160px;
   text-align: center;
   cursor: pointer;
 }
@@ -178,12 +187,14 @@
   color: white;
   display: flex;
   align-items: center;
-  padding: 90px 150px;
+  padding: 60px 40px;
   gap: 100px;
 }
 
-.about-left img {
-  width: 420px;
+.about-left img{
+  width:100%;
+  max-width:420px;
+  height:auto;
 }
 
 .about-text h2 {
