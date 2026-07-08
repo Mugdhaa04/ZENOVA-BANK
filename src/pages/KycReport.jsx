@@ -2,20 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./TransactionReport.css";
 
 function KycReport() {
-
   const [kycData, setKycData] = useState([]);
 
-  // FETCH KYC
   useEffect(() => {
     fetch("http://localhost:3001/kyc")
-      .then(res => res.json())
-      .then(data => setKycData(Array.isArray(data) ? data : []))
-      .catch(err => console.log(err));
+      .then((res) => res.json())
+      .then((data) => setKycData(Array.isArray(data) ? data : []))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className="transaction-page">
-
       {/* TITLE */}
       <h2 className="title">
         KYC Report of Account Number : 7
@@ -26,9 +23,7 @@ function KycReport() {
         <h3>Details of Account Number 7</h3>
 
         <div className="account-wrapper">
-
           <div className="account-left">
-
             <div className="account-row">
               <span>Account No :</span>
               <b>7</b>
@@ -60,13 +55,11 @@ function KycReport() {
               <span>Nominee ID :</span>
               <b>1234</b>
             </div>
-
           </div>
 
           <div className="profile-box">
             <img src="/images/user.png" alt="profile" />
           </div>
-
         </div>
       </div>
 
@@ -107,43 +100,50 @@ function KycReport() {
         </div>
       </div>
 
-      {/* ✅ NEW HEADING (Search bar replace) */}
+      {/* CUSTOMER KYC DETAILS */}
       <div className="box">
         <h3>Customer KYC Details</h3>
 
-        {/* TABLE */}
-        <table>
-          <thead>
-            <tr>
-              <th>KYC ID</th>
-              <th>Document Type</th>
-              <th>ID Number</th>
-              <th>Image</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {kycData.length > 0 ? (
-              kycData.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.documentType}</td>
-                  <td>{item.documentNumber}</td>
-                  <td>
-                    <img src={item.idProof} alt="doc" />
-                  </td>
-                </tr>
-              ))
-            ) : (
+        <div className="table-wrapper">
+          <table>
+            <thead>
               <tr>
-                <td colSpan="4">No Data Found</td>
+                <th>KYC ID</th>
+                <th>Document Type</th>
+                <th>ID Number</th>
+                <th>Image</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
 
+            <tbody>
+              {kycData.length > 0 ? (
+                kycData.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.documentType}</td>
+                    <td>{item.documentNumber}</td>
+                    <td>
+                      <img
+                        src={item.idProof}
+                        alt="doc"
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">No Data Found</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-
     </div>
   );
 }

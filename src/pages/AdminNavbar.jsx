@@ -4,63 +4,135 @@ import "./AdminNavbar.css";
 
 function AdminNavbar() {
 
-  const [openMenu, setOpenMenu] = useState(null);
   const navigate = useNavigate();
 
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [addOpen, setAddOpen] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
+
   const handleLogout = () => {
-  localStorage.removeItem("isAdmin");
-  navigate("/login");
-};
+    localStorage.removeItem("isAdmin");
+    navigate("/login");
+
+    setMenuOpen(false);
+    setAddOpen(false);
+    setReportOpen(false);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setAddOpen(false);
+    setReportOpen(false);
+  };
 
   return (
-    <div className="admin-navbar">
+    <nav className="admin-navbar">
 
+      {/* LOGO */}
       <div className="logo">
-        <img src="/images/logo.png" alt="logo" className="nav-logo" />
-        ZENOVA
+        <img src="/images/logo.png" alt="logo" />
+        <span>ZENOVA</span>
       </div>
 
-      <ul className="nav-menu">
+      {/* MENU ICON */}
+      <div
+        className="menu-icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </div>
+
+      {/* MENU */}
+      <ul className={menuOpen ? "nav-menu active" : "nav-menu"}>
 
         <li>
-          <NavLink to="/" end className="nav-link">HOME</NavLink>
+          <NavLink
+            to="/"
+            className="nav-link"
+            onClick={closeMenu}
+          >
+            HOME
+          </NavLink>
         </li>
 
         <li>
-          <NavLink to="/about" className="nav-link">ABOUT</NavLink>
+          <NavLink
+            to="/about"
+            className="nav-link"
+            onClick={closeMenu}
+          >
+            ABOUT
+          </NavLink>
         </li>
 
         <li>
-          <NavLink to="/admin-dashboard" className="nav-link">DASHBOARD</NavLink>
+          <NavLink
+            to="/admin-dashboard"
+            className="nav-link"
+            onClick={closeMenu}
+          >
+            DASHBOARD
+          </NavLink>
         </li>
 
         {/* ADD NEW */}
-        <li className="dropdown">
-          <span onClick={() => setOpenMenu(openMenu === "add" ? null : "add")}>
+        <li
+          onMouseEnter={() => setAddOpen(true)}
+          onMouseLeave={() => setAddOpen(false)}
+        >
+          <div
+            className="nav-link"
+            onClick={() => setAddOpen(!addOpen)}
+          >
             ADD NEW ▾
-          </span>
+          </div>
 
-          {openMenu === "add" && (
-            <ul className="dropdown-menu">
+          {addOpen && (
+            <ul className="mobile-dropdown">
 
-              <li>
-                <NavLink to="/add-services">Add Services</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/add-services");
+                  closeMenu();
+                }}
+              >
+                Add Services
               </li>
 
-              <li>
-                <NavLink to="/add-transaction">Add Transaction</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/add-transaction");
+                  closeMenu();
+                }}
+              >
+                Add Transaction
               </li>
 
-              <li>
-                <NavLink to="/add-user">Add User</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/add-user");
+                  closeMenu();
+                }}
+              >
+                Add User
               </li>
 
-              <li>
-                <NavLink to="/add-kyc">Add KYC</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/add-kyc");
+                  closeMenu();
+                }}
+              >
+                Add KYC
               </li>
 
-              <li>
-                <NavLink to="/add-account">Add Account</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/add-account");
+                  closeMenu();
+                }}
+              >
+                Add Account
               </li>
 
             </ul>
@@ -68,52 +140,100 @@ function AdminNavbar() {
         </li>
 
         {/* REPORTS */}
-        <li className="dropdown">
-          <span onClick={() => setOpenMenu(openMenu === "report" ? null : "report")}>
+        <li
+          onMouseEnter={() => setReportOpen(true)}
+          onMouseLeave={() => setReportOpen(false)}
+        >
+          <div
+            className="nav-link"
+            onClick={() => setReportOpen(!reportOpen)}
+          >
             REPORTS ▾
-          </span>
+          </div>
 
-          {openMenu === "report" && (
-            <ul className="dropdown-menu">
+          {reportOpen && (
+            <ul className="mobile-dropdown">
 
-              <li>
-                <NavLink to="/service-report">Service Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/service-report");
+                  closeMenu();
+                }}
+              >
+                Service Report
               </li>
 
-              <li>
-                <NavLink to="/customer-report">Customer Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/customer-report");
+                  closeMenu();
+                }}
+              >
+                Customer Report
               </li>
 
-            <li>
-                <NavLink to="/transaction-report">Transaction Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/transaction-report");
+                  closeMenu();
+                }}
+              >
+                Transaction Report
               </li>
 
-              <li>
-                <NavLink to="/kyc-report">KYC Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/kyc-report");
+                  closeMenu();
+                }}
+              >
+                KYC Report
               </li>
 
-              <li>
-                <NavLink to="/account-report">Account Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/account-report");
+                  closeMenu();
+                }}
+              >
+                Account Report
               </li>
 
-              <li>
-                <NavLink to="/admin-report">Admin Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/admin-report");
+                  closeMenu();
+                }}
+              >
+                Admin Report
               </li>
 
-              <li>
-                <NavLink to="/feedback-report">Feedback Report</NavLink>
+              <li
+                onClick={() => {
+                  navigate("/feedback-report");
+                  closeMenu();
+                }}
+              >
+                Feedback Report
               </li>
 
             </ul>
           )}
         </li>
 
-        <li onClick={handleLogout} style={{ cursor: "pointer" }}>
-          LOGOUT
+        {/* LOGOUT */}
+        <li>
+          <span
+            className="nav-link logout"
+            onClick={handleLogout}
+          >
+            LOGOUT
+          </span>
         </li>
 
       </ul>
-    </div>
+
+    </nav>
   );
 }
 

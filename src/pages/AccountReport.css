@@ -1,140 +1,205 @@
+*{
+    box-sizing:border-box;
+}
+
 .account-report-page{
-  background:#f2f2f2;
-  min-height:100vh;
-  padding:20px;
+    background:#f2f2f2;
+    min-height:100vh;
+    padding:20px;
 }
 
-/* Title */
 .report-title{
-  background:#e6e6e6;
-  padding:15px;
-  text-align:center;
-  font-size:26px;
-  font-weight:bold;
-  margin-bottom:20px;
-  color:#2c5d86;
+    background:#e6e6e6;
+    padding:15px;
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+    color:#2c5d86;
+    margin-bottom:20px;
 }
 
-/* Container */
 .report-container{
-  width:90%;
-  margin:auto;
-  background:white;
-  padding:20px;
-  border:1px solid #ddd;
+    width:90%;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border:1px solid #ddd;
+    overflow-x:auto;
 }
 
-/* Search */
 .search-box{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
 }
 
 .search-box label{
-  font-weight:600;
+    font-weight:600;
 }
 
 .search-box input{
-  width:250px;
-  padding:6px;
-  border:1px solid #ccc;
+    flex:1;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:4px;
 }
 
 .search-box button{
-  padding:6px 12px;
-  border:none;
-  background:#1f5a7a;
-  color:white;
-  cursor:pointer;
+    padding:8px 15px;
+    border:none;
+    background:#1f5a7a;
+    color:#fff;
+    cursor:pointer;
+    border-radius:4px;
 }
 
 .reset-btn{
-  background:#777;
+    background:#777;
 }
 
-/* Add button */
 .add-btn{
-  background:#1f5a7a;
-  color:white;
-  border:none;
-  padding:6px 14px;
-  margin-bottom:10px;
-  cursor:pointer;
+    background:#1f5a7a;
+    color:#fff;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:4px;
+    margin-bottom:15px;
 }
 
-/* Table */
 table{
-  width:100%;
-  border-collapse:collapse;
+    width:100%;
+    min-width:950px;
+    border-collapse:collapse;
 }
 
-table th{
-  background:#1f5a7a;
-  color:white;
-  padding:8px;
-  font-size:14px;
+th{
+    background:#1f5a7a;
+    color:#fff;
+    padding:10px;
+    font-size:14px;
 }
 
-table td{
-  border:1px solid #ddd;
-  padding:8px;
-  font-size:13px;
-  text-align:center;
+td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+    font-size:13px;
 }
 
-table img{
-  width:40px;
-  height:40px;
-  border-radius:4px;
+/* Customer Photo */
+
+.customer-photo{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid #ccc;
 }
 
-/* Actions */
-/* Action buttons container */
-.action-buttons {
-  display: flex;
-  gap: 6px;
+/* Action Buttons */
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    gap:6px;
 }
 
-/* Common button */
-.icon-btn {
-  border: none;
-  padding: 5px 8px;
-  cursor: pointer;
-  border-radius: 3px;
-  color: white;
-  font-size: 13px;
+.icon-btn{
+    border:none;
+    padding:6px 8px;
+    border-radius:3px;
+    color:#fff;
+    cursor:pointer;
 }
 
-/* EXACT video colors */
-
-/* View (light blue) */
-.view {
-  background-color: #100562;
+.view{
+    background:#100562;
 }
 
-/* Edit (dark grey) */
-.edit {
-  background-color: #064409;
+.edit{
+    background:#064409;
 }
 
-/* Copy (blue) */
-.copy {
-  background-color: #007bff;
+.copy{
+    background:#007bff;
 }
 
-/* Status (green) */
-.status {
-  background-color: #28a745;
+.status{
+    background:#28a745;
 }
 
-/* Delete (red) */
-.delete {
-  background-color: #8d0d19;
+.delete{
+    background:#8d0d19;
 }
 
-/* hover effect (optional but pro look) */
-.icon-btn:hover {
-  opacity: 0.8;
+.icon-btn:hover{
+    opacity:.85;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.account-report-page{
+    padding:15px;
+}
+
+.report-title{
+    font-size:20px;
+}
+
+.report-container{
+    width:100%;
+    padding:15px;
+    overflow-x:auto;
+}
+
+.search-box{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.search-box input,
+.search-box button{
+    width:100%;
+}
+
+.add-btn{
+    width:100%;
+}
+
+table{
+    min-width:950px;
+}
+
+.customer-photo{
+    width:40px;
+    height:40px;
+}
+
+.action-buttons{
+    flex-wrap:nowrap;
+}
+
+}
+
+@media(max-width:480px){
+
+.report-title{
+    font-size:18px;
+}
+
+.customer-photo{
+    width:35px;
+    height:35px;
+}
+
+th,
+td{
+    font-size:12px;
+    padding:8px;
+}
+
 }

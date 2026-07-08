@@ -7,7 +7,6 @@ function AdminReport() {
   const [search, setSearch] = useState("");
   const [finalSearch, setFinalSearch] = useState("");
 
-  // FETCH USERS
   useEffect(() => {
     fetch("http://localhost:3001/users")
       .then(res => res.json())
@@ -15,7 +14,6 @@ function AdminReport() {
       .catch(err => console.log(err));
   }, []);
 
-  // DELETE USER
   const handleDelete = (id) => {
     fetch(`http://localhost:3001/users/${id}`, {
       method: "DELETE"
@@ -24,7 +22,6 @@ function AdminReport() {
     });
   };
 
-  // SEARCH
   const filteredData =
     finalSearch === ""
       ? users
@@ -37,10 +34,8 @@ function AdminReport() {
   return (
     <div className="admin-page">
 
-      {/* TITLE */}
       <h2 className="title">All Admin Report</h2>
 
-      {/* SEARCH BOX */}
       <div className="search-box">
         <label>Search :</label>
 
@@ -51,58 +46,78 @@ function AdminReport() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button onClick={() => setFinalSearch(search)}>Search</button>
-        <button onClick={() => { setSearch(""); setFinalSearch(""); }}>
+        <button onClick={() => setFinalSearch(search)}>
+          Search
+        </button>
+
+        <button
+          onClick={() => {
+            setSearch("");
+            setFinalSearch("");
+          }}
+        >
           Reset
         </button>
       </div>
 
-      {/* ADD BUTTON */}
       <div className="add-btn-box">
-        <button className="add-btn">Add New User</button>
+        <button className="add-btn">
+          Add New User
+        </button>
       </div>
 
-      {/* TABLE */}
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>User Name</th>
-            <th>Contact No</th>
-            <th>Email</th>
-            <th>City</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+      {/* TABLE WRAPPER */}
+      <div className="table-wrapper">
 
-        <tbody>
-          {filteredData.length > 0 ? (
-            filteredData.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.mobile}</td>
-                <td>{item.email}</td>
-                <td>{item.city}</td>
+        <table>
 
-                <td>
-                  <button className="edit">✏️</button>
-                  <button
-                    className="delete"
-                    onClick={() => handleDelete(item.id)}
-                  >
-                    🗑
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
+          <thead>
             <tr>
-              <td colSpan="6">No Data Found</td>
+              <th>ID</th>
+              <th>User Name</th>
+              <th>Contact No</th>
+              <th>Email</th>
+              <th>City</th>
+              <th>Action</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+
+            {filteredData.length > 0 ? (
+              filteredData.map((item) => (
+                <tr key={item.id}>
+
+                  <td>{item.id}</td>
+                  <td>{item.name}</td>
+                  <td>{item.mobile}</td>
+                  <td>{item.email}</td>
+                  <td>{item.city}</td>
+
+                  <td>
+                    <button className="edit">✏️</button>
+
+                    <button
+                      className="delete"
+                      onClick={() => handleDelete(item.id)}
+                    >
+                      🗑
+                    </button>
+                  </td>
+
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6">No Data Found</td>
+              </tr>
+            )}
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </div>
   );

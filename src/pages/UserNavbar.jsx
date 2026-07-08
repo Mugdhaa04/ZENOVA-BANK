@@ -1,65 +1,153 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./UserNavbar.css";
 
 function UserNavbar() {
+
   const navigate = useNavigate();
 
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const handleLogout = () => {
-    localStorage.removeItem("user"); // 🔐 logout
+    localStorage.removeItem("user");
     navigate("/login");
+    setMenuOpen(false);
+    setDropdownOpen(false);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setDropdownOpen(false);
   };
 
   return (
-    <div className="admin-navbar">
 
-      {/* LOGO */}
-      <div className="logo">ZENOVA</div>
+    <nav className="user-navbar">
 
-      {/* MENU */}
-      <ul className="nav-menu">
+      <div className="user-logo">
+        <img src="/images/logo.png" alt="logo" />
+        <span>ZENOVA</span>
+      </div>
+
+      <div
+        className="user-menu-icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </div>
+
+      <ul className={menuOpen ? "user-nav-menu active" : "user-nav-menu"}>
 
         <li>
-          <NavLink to="/" className="nav-link">
+          <NavLink
+            to="/"
+            className="user-nav-link"
+            onClick={closeMenu}
+          >
             HOME
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/about" className="nav-link">
+          <NavLink
+            to="/about"
+            className="user-nav-link"
+            onClick={closeMenu}
+          >
             ABOUT
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/user-dashboard" className="nav-link">
+          <NavLink
+            to="/user-dashboard"
+            className="user-nav-link"
+            onClick={closeMenu}
+          >
             DASHBOARD
           </NavLink>
         </li>
 
-        {/* DROPDOWN */}
-        <li className="dropdown">
-          <span className="nav-link">MY ADMINISTRATION ▾</span>
+        <li
+          onMouseEnter={() => setDropdownOpen(true)}
+          onMouseLeave={() => setDropdownOpen(false)}
+        >
 
-          <ul className="dropdown-menu">
-            <li onClick={() => navigate("/beneficiary")}>Add Beneficiary</li>
-            <li onClick={() => navigate("/transfer")}>Transfer Money</li>
-            <li onClick={() => navigate("/add-transaction")}>Deposit and Withdraw</li>
-            <li onClick={() => navigate("/beneficiary")}>My Beneficiary</li>
-            <li onClick={() => navigate("/account-report")}>My Accounts</li>
-            <li onClick={() => navigate("/feedback")}>Submit Feedback</li>
-             </ul>
+          <div
+            className="user-nav-link"
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            MY ADMINISTRATION ▾
+          </div>
+
+          {dropdownOpen && (
+
+            <ul className="mobile-dropdown">
+
+              <li onClick={() => {
+                navigate("/beneficiary");
+                closeMenu();
+              }}>
+                Add Beneficiary
+              </li>
+
+              <li onClick={() => {
+                navigate("/transfer");
+                closeMenu();
+              }}>
+                Transfer Money
+              </li>
+
+              <li onClick={() => {
+                navigate("/add-transaction");
+                closeMenu();
+              }}>
+                Deposit & Withdraw
+              </li>
+
+              <li onClick={() => {
+                navigate("/beneficiary");
+                closeMenu();
+              }}>
+                My Beneficiary
+              </li>
+
+              <li onClick={() => {
+                navigate("/account-report");
+                closeMenu();
+              }}>
+                My Accounts
+              </li>
+
+              <li onClick={() => {
+                navigate("/feedback");
+                closeMenu();
+              }}>
+                Submit Feedback
+              </li>
+
+            </ul>
+
+          )}
+
         </li>
 
         <li>
-          <span className="nav-link logout" onClick={handleLogout}>
+          <span
+            className="user-nav-link logout"
+            onClick={handleLogout}
+          >
             LOGOUT
           </span>
         </li>
 
       </ul>
-    </div>
+
+    </nav>
+
   );
+
 }
 
 export default UserNavbar;

@@ -72,3 +72,85 @@ cursor:pointer;
 .btn-group button:hover{
 background:#1f4e79;
 }
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.feedback-page{
+  padding:15px;
+}
+
+.feedback-title{
+  padding:12px;
+  font-size:20px;
+}
+
+.feedback-container{
+
+  width:100%;
+
+  margin:20px auto;
+
+  padding:20px 15px;
+
+}
+
+.feedback-container h3{
+
+  text-align:center;
+
+  font-size:18px;
+
+}
+
+.feedback-container form > div{
+
+  flex-direction:column !important;
+
+  align-items:flex-start !important;
+
+  gap:6px;
+
+}
+
+.feedback-container label{
+
+  width:100% !important;
+
+}
+
+.feedback-container input,
+.feedback-container select,
+.feedback-container textarea{
+
+  width:100% !important;
+
+  flex:none !important;
+
+}
+
+.feedback-container textarea{
+
+  height:90px;
+
+}
+
+.btn-group{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:12px;
+
+}
+
+.btn-group button{
+
+  width:100%;
+
+  margin:0;
+
+}
+
+}

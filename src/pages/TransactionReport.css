@@ -1,262 +1,308 @@
-.transaction-page {
-  padding: 20px;
-  background: #f5f5f5;
-  font-family: Arial, sans-serif;
-  width: 90%;
-  margin: auto;
+*{
+    box-sizing:border-box;
 }
 
-/* TITLE */
-.title {
-  text-align: center;
-  color: red;
-  margin: 20px 0;
-  font-weight: bold;
+.transaction-page{
+    padding:20px;
+    background:#f5f5f5;
+    font-family:Arial,sans-serif;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
 }
 
-/* BOX */
-.box {
-  border: 1px solid #ccc;
-  background: white;
-  margin-bottom: 20px;
-  width: 100;
+.title{
+    text-align:center;
+    color:red;
+    margin:20px 0;
+    font-weight:bold;
+    font-size:28px;
 }
 
-.box h3 {
-  background: #e6e6e6;
-  padding: 8px 10px;
-  border-bottom: 1px solid #ccc;
-  font-size: 15px;
-  font-weight: normal;
+.box{
+    background:#fff;
+    border:1px solid #ccc;
+    margin-bottom:20px;
+    width:100%;
+    overflow:auto;
 }
 
-/* 🔥 UPDATED ROW */
-.account-row {
-  display: flex;
-  align-items: center;
-  padding: 8px 20px;
+.box h3{
+    background:#e6e6e6;
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    font-size:16px;
 }
 
-/* LABEL */
-.account-row span {
-  width: 180px;   /* 🔥 increased */
-  color: #555;
+.account-wrapper{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:15px;
+    gap:20px;
 }
 
-/* VALUE */
-.account-row b {
-  width: 220px;   /* 🔥 increased */
-  margin-right: 40px;
-  color: #333;
+.account-left{
+    flex:1;
 }
 
-/* 🔥 PROFILE + FLEX */
-.account-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.profile-box{
+    width:130px;
+    flex-shrink:0;
 }
 
-.account-left {
-  width: 75%;
+.profile-box img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border:1px solid #ccc;
 }
 
-.profile-box {
-  width: 25%;
-  display: flex;
-  justify-content: center;
+.account-row{
+    display:flex;
+    align-items:center;
+    padding:10px;
 }
 
-.profile-box img {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #ccc;
+.account-row:nth-child(odd){
+    background:#f9f9f9;
 }
 
-/* SEARCH */
-.search-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #eee;
-  padding: 10px;
-  border: 1px solid #ccc;
+.account-row span{
+    width:150px;
+    color:#666;
+    font-size:14px;
 }
 
-.search-box input {
-  padding: 5px;
-  margin-left: 10px;
-  width: 250px;
+.account-row b{
+    width:180px;
+    font-weight:normal;
 }
 
-/* SUMMARY */
-.summary {
-  display: flex;
-  gap: 15px;
-  margin: 15px 0;
+.search-box{
+    display:flex;
+    gap:10px;
+    padding:10px;
+    background:#eee;
+    border:1px solid #ccc;
+    margin-bottom:15px;
 }
 
-.summary div {
-  background: #0b3d5c;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 3px;
-  font-size: 14px;
+.search-box input{
+    flex:1;
+    padding:8px;
+    border:1px solid #ccc;
 }
 
-.summary span {
-  background: white;
-  color: red;
-  padding: 3px 6px;
-  margin-left: 10px;
-  border-radius: 3px;
-  font-weight: bold;
+.search-box button{
+    padding:8px 15px;
+    border:none;
+    cursor:pointer;
 }
 
-/* TABLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
+.add-btn{
+    background:#0b3d5c;
+    color:#fff;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
 }
 
-th {
-  background: #0b3d5c;
-  color: white;
-  padding: 10px;
-  font-size: 14px;
+.summary-bar{
+    display:flex;
+    background:#0b3d5c;
+    margin:15px 0;
 }
 
-td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
-  font-size: 13px;
-}
-td:last-child {
-  text-align: left;
-  padding-left: 10px;
-}
-
-/* BUTTONS */
-button {
-  margin: 0 3px;
-  padding: 4px 6px;
-  border: none;
-  cursor: pointer;
+.summary-item{
+    flex:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#fff;
+    padding:12px;
+    border-right:1px solid rgba(255,255,255,.3);
 }
 
-.view { background: #4da6ff; color: white; }
-.edit { background: green; color: white; }
-.delete { background: red; color: white; }
-
-/* 🔥 ACCOUNT WRAPPER */
-.account-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.summary-item:last-child{
+    border-right:none;
 }
 
-/* LEFT SIDE */
-.account-left {
-  width: 85%;
+.summary-item b{
+    background:#fff;
+    color:red;
+    padding:4px 10px;
+    border-radius:4px;
 }
 
-/* PROFILE IMAGE FIX */
-.profile-box {
-  width: 120px;
-  margin-right: 50px;   /* 👈 RIGHT space कमी */
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
 }
 
-.profile-box img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border: 1px solid #ccc;
+table{
+    width:100%;
+    min-width:700px;
+    border-collapse:collapse;
+    background:#fff;
 }
 
-/* 🔥 ROW STYLE */
-.account-row {
-  display: flex;
-  align-items: center;
-  padding: 8px 15px;
+th{
+    background:#0b3d5c;
+    color:#fff;
+    padding:10px;
+    white-space:nowrap;
 }
 
-/* 🔥 ALTERNATE ROW COLOR (MAIN FIX) */
-.box .account-row:nth-child(odd) {
-  background: #f7f7f7;
+td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+    white-space:nowrap;
 }
 
-.box .account-row:nth-child(even) {
-  background: #ffffff;
+tbody tr:nth-child(odd){
+    background:#f9f9f9;
 }
 
-/* LABEL */
-.account-row span {
-  width: 160px;
-  color: #666;
-  font-size: 14px;
+tbody tr:nth-child(even){
+    background:#fff;
 }
 
-/* VALUE */
-.account-row b {
-  width: 200px;
-  font-weight: normal;
-  color: #222;
+td button{
+    margin:2px;
+    padding:5px 8px;
+    border:none;
+    cursor:pointer;
+}
+/* ===================== MOBILE ===================== */
+
+@media screen and (max-width:768px){
+
+.transaction-page{
+    width:100%;
+    padding:10px;
 }
 
-/* 🔥 TABLE ROW STRIPES */
-tbody tr:nth-child(odd) {
-  background: #f9f9f9;
+.title{
+    font-size:20px;
 }
 
-tbody tr:nth-child(even) {
-  background: #ffffff;
+.box{
+    width:100%;
 }
 
-.add-btn {
-  background: #0b3d5c;
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  font-size: 13px;
-  cursor: pointer;
+.account-wrapper{
+    flex-direction:column;
+    align-items:center;
 }
 
-/* SUMMARY FULL WIDTH */
-.summary-bar {
-  display: flex;
-  width: 100%;
-  background: #0b3d5c;
-  margin: 15px 0;
+.account-left{
+    width:100%;
 }
 
-/* each section */
-.summary-item {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
-  color: white;
-  border-right: 1px solid rgba(255,255,255,0.3);
+.profile-box{
+    width:120px;
+    margin:15px auto;
 }
 
-/* last ला border नको */
-.summary-item:last-child {
-  border-right: none;
+.account-row{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:10px;
 }
 
-/* label */
-.summary-item span {
-  font-size: 14px;
+.account-row span,
+.account-row b{
+    width:100%;
+    margin:2px 0;
 }
 
-/* amount (RED BOX) */
-.summary-item b {
-  background: #fff;
-  color: red;
-  padding: 3px 10px;
-  border-radius: 3px;
-  font-weight: bold;
+.search-box{
+    flex-direction:column;
+    gap:10px;
+}
+
+.search-box input,
+.search-box button{
+    width:100%;
+}
+
+.add-btn{
+    width:100%;
+}
+
+.summary-bar{
+    flex-direction:column;
+}
+
+.summary-item{
+    width:100%;
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.3);
+}
+
+.summary-item:last-child{
+    border-bottom:none;
+}
+
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    min-width:700px;
+}
+
+}
+
+@media screen and (max-width:480px){
+
+.transaction-page{
+    padding:8px;
+}
+
+.title{
+    font-size:18px;
+}
+
+.box h3{
+    font-size:14px;
+}
+
+.profile-box{
+    width:100px;
+}
+
+.profile-box img{
+    height:100px;
+}
+
+.search-box{
+    padding:8px;
+}
+
+.summary-item{
+    padding:10px;
+}
+
+.summary-item span{
+    font-size:13px;
+}
+
+.summary-item b{
+    font-size:13px;
+}
+
+table{
+    min-width:650px;
+}
+
+th,
+td{
+    padding:8px;
+    font-size:12px;
+}
+
 }

@@ -63,3 +63,45 @@
   width: 420px;
   margin-top: 60px;
 }
+@media(max-width:768px){
+
+.user-container{
+  padding:20px 10px;
+}
+
+.user-box{
+  width:100%;
+  padding:20px;
+}
+
+.user-row{
+  flex-direction:column;
+  gap:30px;
+}
+
+.user-sidebar{
+  width:100%;
+}
+
+.user-heading{
+  padding-left:0;
+  text-align:center;
+}
+
+.user-sidebar button{
+  width:100%;
+}
+
+.user-content{
+  width:100%;
+  padding-top:0;
+  text-align:center;
+}
+
+.user-img{
+  width:100%;
+  max-width:320px;
+  margin-top:0;
+}
+
+}

@@ -1,69 +1,144 @@
 .transaction-page .page-title{
-background:#e6e6e6;
-padding:15px;
-text-align:center;
-font-size:26px;
-font-weight:bold;
-margin-bottom:20px;
+    background:#e6e6e6;
+    padding:15px;
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
 .transaction-page .sub-heading{
-width:50%;
-margin:auto;
-margin-bottom:10px;
-font-weight:600;
-color:#444;
+    width:50%;
+    margin:auto;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#444;
 }
 
 .transaction-page .form-container{
-width:50%;
-margin:auto;
-background:white;
-padding:30px;
-border:1px solid #ddd;
-border-radius:5px;
+    width:50%;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+.transaction-page form{
+    width:100%;
 }
 
 .transaction-page .form-group{
-display:flex;
-flex-direction:row;   /* important fix */
-align-items:center;
-margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
 }
 
 .transaction-page .form-group label{
-width:150px;
-font-weight:600;
+    width:150px;
+    font-weight:600;
 }
 
 .transaction-page .form-group input,
 .transaction-page .form-group select,
 .transaction-page .form-group textarea{
-flex:1;
-padding:8px;
-border:1px solid #ccc;
-border-radius:3px;
+    flex:1;
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    box-sizing:border-box;
 }
 
 .transaction-page textarea{
-height:60px;
+    height:70px;
+    resize:vertical;
 }
 
+/* Buttons */
+
 .transaction-page .btn-group{
-margin-top:20px;
-margin-left:150px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+    flex-wrap:wrap;
 }
 
 .transaction-page .btn-group button{
-padding:8px 18px;
-margin-right:10px;
-border:none;
-background:#1f5a7a;
-color:white;
-cursor:pointer;
-border-radius:3px;
+    flex:1;
+    max-width:150px;
+    padding:10px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    color:#fff;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+.transaction-page .btn-group button:first-child{
+    background:#1f5a7a;
 }
 
 .transaction-page .btn-group button:last-child{
-background:#777;
+    background:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.transaction-page{
+    padding:15px;
+    box-sizing:border-box;
+}
+
+.transaction-page .page-title{
+    font-size:20px;
+    padding:12px;
+}
+
+.transaction-page .sub-heading{
+    width:100%;
+    text-align:center;
+    font-size:15px;
+}
+
+.transaction-page .form-container{
+    width:100%;
+    padding:20px 15px;
+    box-sizing:border-box;
+}
+
+.transaction-page .form-group{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+}
+
+.transaction-page .form-group label{
+    width:100%;
+}
+
+.transaction-page .form-group input,
+.transaction-page .form-group select,
+.transaction-page .form-group textarea{
+    width:100%;
+}
+
+.transaction-page textarea{
+    height:80px;
+}
+
+.transaction-page .btn-group{
+    flex-direction:column;
+    gap:10px;
+}
+
+.transaction-page .btn-group button{
+    width:100%;
+    max-width:100%;
+}
 }

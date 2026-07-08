@@ -78,3 +78,62 @@
 .btn-group button:last-child {
   background:#155792;
 }
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.adduser-page{
+  padding:15px;
+}
+
+.page-title{
+  font-size:20px;
+  padding:12px;
+}
+
+.form-container{
+  width:100%;
+  padding:20px 15px;
+}
+
+.form-grid{
+  grid-template-columns:1fr;
+  gap:18px;
+}
+
+.full{
+  grid-column:auto;
+}
+
+.btn-group{
+  grid-column:auto;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:12px;
+
+  margin-top:10px;
+}
+
+.btn-group button{
+
+  width:100%;
+
+  margin:0;
+
+  padding:12px;
+
+}
+
+.form-group input,
+.form-group select{
+
+  height:42px;
+
+  font-size:14px;
+
+}
+
+}

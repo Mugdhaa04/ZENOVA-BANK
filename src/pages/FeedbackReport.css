@@ -1,75 +1,114 @@
-.feedback-page {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+.feedback-page{
+    font-family:Arial, sans-serif;
+    background:#f5f5f5;
+    padding:20px;
+    box-sizing:border-box;
 }
 
-
-
-/* TITLE BAR */
-.main-title {
-  text-align: center;
-  background: #e6e6e6;
-  padding: 15px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
+/* TITLE */
+.main-title{
+    text-align:center;
+    background:#e6e6e6;
+    padding:15px;
+    font-size:24px;
+    font-weight:bold;
+    color:#333;
+    margin-bottom:20px;
 }
 
 /* BOX */
-.box {
-  width: 90%;
-  margin: 20px auto;
-  background: white;
-  border: 1px solid #ccc;
+.box{
+    width:90%;
+    margin:auto;
+    background:white;
+    border:1px solid #ccc;
 }
 
-.box h3 {
-  background: #f2f2f2;
-  padding: 10px;
-  font-size: 15px;
-  border-bottom: 1px solid #ccc;
+.box h3{
+    background:#f2f2f2;
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    font-size:16px;
+}
+
+/* TABLE WRAPPER */
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
 }
 
 /* TABLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-th {
-  background: #0b3d5c;
-  color: white;
-  padding: 10px;
-  font-size: 14px;
+th{
+    background:#0b3d5c;
+    color:white;
+    padding:10px;
+    white-space:nowrap;
 }
 
-td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
-  font-size: 13px;
+td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+    white-space:nowrap;
 }
 
-/* STRIPES */
-tbody tr:nth-child(odd) {
-  background: #f9f9f9;
+tbody tr:nth-child(odd){
+    background:#f9f9f9;
 }
 
 /* BUTTONS */
-button {
-  border: none;
-  padding: 5px 8px;
-  margin: 0 3px;
-  cursor: pointer;
+button{
+    border:none;
+    padding:5px 8px;
+    margin:0 3px;
+    cursor:pointer;
 }
 
-.view {
-  background: #4da6ff;
-  color: white;
+.view{
+    background:#4da6ff;
+    color:white;
 }
 
-.delete {
-  background: red;
-  color: white;
+.delete{
+    background:red;
+    color:white;
+}
+
+/* MOBILE */
+@media (max-width:320px){
+
+.feedback-page{
+    padding:10px;
+}
+
+.main-title{
+    font-size:20px;
+    padding:12px;
+}
+
+.box{
+    width:100%;
+}
+
+table{
+    min-width:650px;
+}
+
+th,
+td{
+    font-size:12px;
+    padding:8px;
+}
+
+button{
+    padding:4px 6px;
+    font-size:12px;
+}
+
 }
 

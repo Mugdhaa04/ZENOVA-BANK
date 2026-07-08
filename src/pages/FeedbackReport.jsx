@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./TransactionReport.css";
+import "./FeedbackReport.css";
 
 function FeedbackReport() {
 
   const [feedbackData, setFeedbackData] = useState([]);
   const navigate = useNavigate();
 
-  // ✅ FETCH DATA
   useEffect(() => {
     fetch("http://localhost:3001/feedback")
       .then(res => res.json())
@@ -15,7 +14,6 @@ function FeedbackReport() {
       .catch(err => console.log(err));
   }, []);
 
-  // ✅ DELETE
   const handleDelete = (id) => {
     fetch(`http://localhost:3001/feedback/${id}`, {
       method: "DELETE"
@@ -25,65 +23,72 @@ function FeedbackReport() {
   };
 
   return (
-    <div className="transaction-page">
+    <div className="feedback-page">
 
-      {/* 🔥 HEADING OUTSIDE BOX */}
-      <h2 className="title">All Feedback Report</h2>
+      <div className="main-title">
+        All Feedback Report
+      </div>
 
-      {/* BOX */}
       <div className="box">
 
         <h3>Feedback Records</h3>
 
-        {/* TABLE */}
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Rating</th>
-              <th>Message</th>
-              <th>Action</th>
-            </tr>
-          </thead>
+        <div className="table-wrapper">
 
-          <tbody>
-            {feedbackData.length > 0 ? (
-              feedbackData.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.rating}</td>
-                  <td>{item.message}</td>
+          <table>
 
-                  <td>
-                    {/* ✅ VIEW → OPEN FEEDBACK PAGE */}
-                    <button
-                      className="view"
-                      onClick={() => navigate("/feedback", { state: item })}
-                    >
-                      👁
-                    </button>
-
-                    {/* DELETE */}
-                    <button
-                      className="delete"
-                      onClick={() => handleDelete(item.id)}
-                    >
-                      🗑
-                    </button>
-                  </td>
-                </tr>
-              ))
-            ) : (
+            <thead>
               <tr>
-                <td colSpan="6">No Data Found</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Rating</th>
+                <th>Message</th>
+                <th>Action</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+
+              {feedbackData.length > 0 ? (
+                feedbackData.map((item) => (
+                  <tr key={item.id}>
+
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.rating}</td>
+                    <td>{item.message}</td>
+
+                    <td>
+                      <button
+                        className="view"
+                        onClick={() => navigate("/feedback", { state: item })}
+                      >
+                        👁
+                      </button>
+
+                      <button
+                        className="delete"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        🗑
+                      </button>
+                    </td>
+
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6">No Data Found</td>
+                </tr>
+              )}
+
+            </tbody>
+
+          </table>
+
+        </div>
 
       </div>
 

@@ -3,17 +3,20 @@ import { useParams } from "react-router-dom";
 import "./TransactionDetails.css";
 
 function TransactionDetails() {
+
   const { id } = useParams();
   const [transaction, setTransaction] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:3001/transactions/${id}`)
-      .then(res => res.json())
-      .then(data => setTransaction(data))
-      .catch(err => console.log(err));
+      .then((res) => res.json())
+      .then((data) => setTransaction(data))
+      .catch((err) => console.log(err));
   }, [id]);
 
-  if (!transaction) return <h3>Loading...</h3>;
+  if (!transaction) {
+    return <h3>Loading...</h3>;
+  }
 
   return (
     <div className="details-page">
@@ -35,42 +38,49 @@ function TransactionDetails() {
 
           <hr />
 
-          {/* TABLE */}
-          <table className="details-table">
-            <tbody>
-              <tr>
-                <th>Account ID</th>
-                <td>{transaction.accountNumber || 7}</td>
-              </tr>
+          <div className="table-wrapper">
 
-              <tr>
-                <th>Amount</th>
-                <td>{transaction.amount}</td>
-              </tr>
+            <table className="details-table">
 
-              <tr>
-                <th>Transaction Type</th>
-                <td>{transaction.transactionType}</td>
-              </tr>
+              <tbody>
 
-              <tr>
-                <th>Transaction Method</th>
-                <td>{transaction.transferMethod}</td>
-              </tr>
+                <tr>
+                  <th>Account ID</th>
+                  <td>{transaction.accountNumber || 7}</td>
+                </tr>
 
-              <tr>
-                <th>Transaction Date</th>
-                <td>{transaction.date}</td>
-              </tr>
+                <tr>
+                  <th>Amount</th>
+                  <td>{transaction.amount}</td>
+                </tr>
 
-              <tr>
-                <th>Transaction Description</th>
-                <td>{transaction.description || "-"}</td>
-              </tr>
-            </tbody>
-          </table>
+                <tr>
+                  <th>Transaction Type</th>
+                  <td>{transaction.transactionType}</td>
+                </tr>
+                <tr>
+                  <th>Transaction Method</th>
+                  <td>{transaction.transferMethod}</td>
+                </tr>
+
+                <tr>
+                  <th>Transaction Date</th>
+                  <td>{transaction.date}</td>
+                </tr>
+
+                <tr>
+                  <th>Transaction Description</th>
+                  <td>{transaction.description || "-"}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
 
         </div>
+
       </div>
 
     </div>

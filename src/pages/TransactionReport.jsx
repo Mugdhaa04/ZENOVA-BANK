@@ -7,11 +7,10 @@ function TransactionReport() {
   const [transactions, setTransactions] = useState([]);
   const [search, setSearch] = useState("");
   const [finalSearch, setFinalSearch] = useState("");
-  const [openingBalance, setOpeningBalance] = useState(0); // ✅ NEW
+  const [openingBalance, setOpeningBalance] = useState(0);
 
   const navigate = useNavigate();
 
-  // ✅ FETCH TRANSACTIONS
   useEffect(() => {
     fetch("http://localhost:3001/transactions")
       .then(res => res.json())
@@ -19,7 +18,6 @@ function TransactionReport() {
       .catch(err => console.log(err));
   }, []);
 
-  // ✅ FETCH USER BALANCE (IMPORTANT)
   useEffect(() => {
     fetch("http://localhost:3001/users/7")
       .then(res => res.json())
@@ -27,7 +25,6 @@ function TransactionReport() {
       .catch(err => console.log(err));
   }, []);
 
-  // ✅ DELETE
   const handleDelete = (id) => {
     fetch(`http://localhost:3001/transactions/${id}`, {
       method: "DELETE"
@@ -36,7 +33,6 @@ function TransactionReport() {
     });
   };
 
-  // ✅ SEARCH
   const filteredData = transactions.filter((item) => {
     const searchText = finalSearch.toLowerCase();
 
@@ -48,17 +44,14 @@ function TransactionReport() {
     );
   });
 
-  // ✅ CREDIT
   const totalCredit = transactions
     .filter(item => item.transactionType?.toLowerCase().includes("deposit"))
     .reduce((acc, curr) => acc + Number(curr.amount || 0), 0);
 
-  // ✅ DEBIT
   const totalDebit = transactions
     .filter(item => item.transactionType?.toLowerCase().includes("withdraw"))
     .reduce((acc, curr) => acc + Number(curr.amount || 0), 0);
 
-  // ✅ FINAL BALANCE (CORRECT FORMULA)
   const balance = openingBalance + totalCredit - totalDebit;
 
   return (
@@ -68,8 +61,8 @@ function TransactionReport() {
         Transaction Report of Account Number : 7
       </h2>
 
-      {/* ACCOUNT DETAILS */}
       <div className="box">
+
         <h3>Details of Account Number 7</h3>
 
         <div className="account-wrapper">
@@ -115,10 +108,11 @@ function TransactionReport() {
           </div>
 
         </div>
+
       </div>
 
-      {/* CUSTOMER DETAILS */}
       <div className="box">
+
         <h3>Details of Customer</h3>
 
         <div className="account-row">
@@ -152,8 +146,8 @@ function TransactionReport() {
           <span>Email :</span>
           <b>amit@gmail.com</b>
         </div>
-      </div>
 
+      </div>
       {/* SEARCH */}
       <div className="search-box">
         <input
@@ -163,8 +157,16 @@ function TransactionReport() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button onClick={() => setFinalSearch(search)}>Search</button>
-        <button onClick={() => { setSearch(""); setFinalSearch(""); }}>
+        <button onClick={() => setFinalSearch(search)}>
+          Search
+        </button>
+
+        <button
+          onClick={() => {
+            setSearch("");
+            setFinalSearch("");
+          }}
+        >
           Reset
         </button>
       </div>
@@ -200,36 +202,66 @@ function TransactionReport() {
       </div>
 
       {/* TABLE */}
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Type</th>
-            <th>Method</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+      <div className="table-wrapper">
 
-        <tbody>
-          {filteredData.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.date}</td>
-              <td>{item.amount}</td>
-              <td>{item.transactionType}</td>
-              <td>{item.transferMethod}</td>
+        <table>
 
-              <td>
-                <button onClick={() => navigate(`/transaction-details/${item.id}`)}>👁</button>
-                <button onClick={() => navigate(`/edit-transaction/${item.id}`)}>✏️</button>
-                <button onClick={() => handleDelete(item.id)}>🗑</button>
-              </td>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Type</th>
+              <th>Method</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+
+            {filteredData.map((item) => (
+              <tr key={item.id}>
+
+                <td>{item.id}</td>
+                <td>{item.date}</td>
+                <td>{item.amount}</td>
+                <td>{item.transactionType}</td>
+                <td>{item.transferMethod}</td>
+
+                <td>
+
+                  <button
+                    onClick={() =>
+                      navigate(`/transaction-details/${item.id}`)
+                    }
+                  >
+                    👁
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      navigate(`/edit-transaction/${item.id}`)
+                    }
+                  >
+                    ✏️
+                  </button>
+
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    🗑
+                  </button>
+
+                </td>
+
+              </tr>
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </div>
   );

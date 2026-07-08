@@ -9,19 +9,16 @@ function AccountReport() {
 
   const navigate = useNavigate();
 
-  // 🔥 Fetch data
   useEffect(() => {
     fetch("http://localhost:3001/accounts")
-      .then(res => res.json())
-      .then(data => setAccounts(data));
+      .then((res) => res.json())
+      .then((data) => setAccounts(data));
   }, []);
 
-  // 🔥 Search filter
-  const filteredData = accounts.filter(acc =>
+  const filteredData = accounts.filter((acc) =>
     (acc.name || "").toLowerCase().includes(search.toLowerCase())
   );
 
-  // 🔥 Delete
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure?");
     if (!confirmDelete) return;
@@ -30,18 +27,13 @@ function AccountReport() {
       method: "DELETE",
     });
 
-    setAccounts(prev =>
-      prev.filter(acc => acc.id !== id)
-    );
+    setAccounts((prev) => prev.filter((acc) => acc.id !== id));
   };
 
-  // 🔥 Status toggle
   const toggleStatus = (id) => {
-    setAccounts(prev =>
-      prev.map(acc =>
-        acc.id === id
-          ? { ...acc, active: !acc.active }
-          : acc
+    setAccounts((prev) =>
+      prev.map((acc) =>
+        acc.id === id ? { ...acc, active: !acc.active } : acc
       )
     );
   };
@@ -55,7 +47,6 @@ function AccountReport() {
 
       <div className="report-container">
 
-        {/* Search */}
         <div className="search-box">
           <label>Search :</label>
 
@@ -76,7 +67,6 @@ function AccountReport() {
           </button>
         </div>
 
-        {/* Add Button */}
         <button
           className="add-btn"
           onClick={() => navigate("/add-user")}
@@ -84,7 +74,6 @@ function AccountReport() {
           Add New Account
         </button>
 
-        {/* Table */}
         <table>
           <thead>
             <tr>
@@ -105,9 +94,15 @@ function AccountReport() {
               <tr key={acc.id}>
                 <td>{acc.id}</td>
                 <td>{acc.name}</td>
+
                 <td>
-                  <img src="https://via.placeholder.com/40" alt="" />
+                  <img
+                    src={acc.photo}
+                    alt={acc.name}
+                    className="customer-photo"
+                  />
                 </td>
+
                 <td>{acc.type}</td>
                 <td>{acc.mobile}</td>
                 <td>{acc.email}</td>
@@ -116,7 +111,6 @@ function AccountReport() {
 
                 <td className="action-buttons">
 
-                  {/* 👁 Transfer */}
                   <button
                     className="icon-btn view"
                     onClick={() => navigate("/transfer-report")}
@@ -124,7 +118,6 @@ function AccountReport() {
                     <i className="fas fa-eye"></i>
                   </button>
 
-                  {/* ✏️ Transaction */}
                   <button
                     className="icon-btn edit"
                     onClick={() => navigate("/transaction-report")}
@@ -132,7 +125,6 @@ function AccountReport() {
                     <i className="fas fa-pen"></i>
                   </button>
 
-                  {/* 📄 History */}
                   <button
                     className="icon-btn copy"
                     onClick={() => navigate("/kyc-report")}
@@ -140,15 +132,19 @@ function AccountReport() {
                     <i className="fas fa-copy"></i>
                   </button>
 
-                  {/* 🔄 Status */}
                   <button
                     className="icon-btn status"
                     onClick={() => toggleStatus(acc.id)}
                   >
-                    <i className={acc.active ? "fas fa-toggle-on" : "fas fa-toggle-off"}></i>
+                    <i
+                      className={
+                        acc.active
+                          ? "fas fa-toggle-on"
+                          : "fas fa-toggle-off"
+                      }
+                    ></i>
                   </button>
 
-                  {/* 🗑 Delete */}
                   <button
                     className="icon-btn delete"
                     onClick={() => handleDelete(acc.id)}
@@ -157,11 +153,9 @@ function AccountReport() {
                   </button>
 
                 </td>
-
               </tr>
             ))}
           </tbody>
-
         </table>
 
       </div>

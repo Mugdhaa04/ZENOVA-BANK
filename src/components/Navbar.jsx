@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./Navbar.css";
 
 function Navbar() {
@@ -6,12 +7,16 @@ function Navbar() {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("user");
 
+  const [open, setOpen] = useState(false);
+
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
+    setOpen(false);
   };
 
   return (
+
     <div className="navbar">
 
       <div className="logo">
@@ -19,33 +24,71 @@ function Navbar() {
         <span>ZENOVA</span>
       </div>
 
-      <div className="menu">
+      <div
+        className="hamburger"
+        onClick={() => setOpen(!open)}
+      >
+        ☰
+      </div>
 
-        <Link to="/">HOME</Link>
-        <Link to="/about">ABOUT</Link>
+      <div className={`menu ${open ? "active" : ""}`}>
+
+        <Link to="/" onClick={() => setOpen(false)}>
+          HOME
+        </Link>
+
+        <Link to="/about" onClick={() => setOpen(false)}>
+          ABOUT
+        </Link>
 
         {!isLoggedIn && (
           <>
-            <Link to="/services">SERVICES</Link>
-            <Link to="/login">LOGIN</Link>
-            <Link to="/feedback">FEEDBACK</Link>
+            <Link
+              to="/services"
+              onClick={() => setOpen(false)}
+            >
+              SERVICES
+            </Link>
+
+            <Link
+              to="/login"
+              onClick={() => setOpen(false)}
+            >
+              LOGIN
+            </Link>
+
+            <Link
+              to="/feedback"
+              onClick={() => setOpen(false)}
+            >
+              FEEDBACK
+            </Link>
           </>
         )}
 
         {isLoggedIn && (
           <>
-            <Link to="/dashboard">DASHBOARD</Link>
-            <span 
-              onClick={handleLogout} 
+            <Link
+              to="/dashboard"
+              onClick={() => setOpen(false)}
+            >
+              DASHBOARD
+            </Link>
+
+            <span
+              onClick={handleLogout}
               style={{ cursor: "pointer" }}
             >
               LOGOUT
             </span>
+
           </>
         )}
 
       </div>
+
     </div>
+
   );
 }
 

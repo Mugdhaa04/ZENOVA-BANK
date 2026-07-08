@@ -38,3 +38,43 @@ border-radius:50%;
 border:3px solid orange;
 background:white;
 }
+@media (max-width:768px){
+
+.details-container{
+    padding:10px;
+}
+
+.details-title{
+    font-size:20px;
+    text-align:center;
+    padding:10px;
+}
+
+.details-box{
+    display:block;
+}
+
+.details-icon{
+    text-align:center;
+    margin:20px 0;
+}
+
+.details-icon img{
+    width:70px;
+    height:70px;
+}
+
+.details-box table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.details-box td{
+    padding:10px;
+    word-break:break-word;
+}
+
+.label{
+    width:35%;
+}
+}

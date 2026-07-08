@@ -1,51 +1,153 @@
-.customer-page {
-  padding: 20px;
+.customer-page{
+    padding:20px;
+    box-sizing:border-box;
 }
 
-.page-title {
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 20px;
+/* Title */
+
+.page-title{
+    background:#e6e6e6;
+    padding:15px;
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
-.search-box {
-  margin-bottom: 15px;
+/* Search */
+
+.search-box{
+    width:70%;
+    margin:0 auto 15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid #ccc;
+    padding:10px;
+    box-sizing:border-box;
 }
 
-.search-box input {
-  padding: 6px;
-  margin: 0 10px;
+.search-box label{
+    font-weight:600;
 }
 
-.search-btn, .reset-btn {
-  padding: 6px 10px;
-  margin-right: 5px;
+.search-box input{
+    flex:1;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:4px;
 }
 
-.add-btn {
-  margin-bottom: 15px;
-  padding: 8px 12px;
+.search-btn,
+.reset-btn{
+    padding:8px 15px;
+    border:none;
+    border-radius:4px;
+    color:#fff;
+    cursor:pointer;
 }
 
-.table-container table {
-  width: 100%;
-  border-collapse: collapse;
+.search-btn{
+    background:#1e4f6b;
 }
 
-.table-container th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
+.reset-btn{
+    background:#777;
 }
 
-.edit-btn {
-  background: green;
-  color: white;
-  margin-right: 5px;
+/* Add Button */
+
+.add-btn{
+    background:green;
+    color:#fff;
+    border:none;
+    padding:10px 15px;
+    border-radius:4px;
+    cursor:pointer;
+    margin-left:15%;
+    margin-bottom:15px;
 }
 
-.delete-btn {
-  background: red;
-  color: white;
+/* Table */
+
+.table-container{
+    width:70%;
+    margin:auto;
+    border:1px solid #ddd;
+    overflow-x:auto;
+    background:#fff;
+}
+
+.table-container table{
+    width:100%;
+    min-width:700px;
+    border-collapse:collapse;
+}
+
+.table-container th,
+.table-container td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+
+.table-container th{
+    background:#1e4f6b;
+    color:#fff;
+}
+
+.edit-btn,
+.delete-btn{
+    border:none;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:3px;
+    cursor:pointer;
+}
+
+.edit-btn{
+    background:green;
+    margin-right:5px;
+}
+
+.delete-btn{
+    background:red;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.customer-page{
+    padding:15px;
+}
+
+.page-title{
+    font-size:20px;
+}
+
+.search-box{
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.search-box input,
+.search-btn,
+.reset-btn{
+    width:100%;
+}
+
+.add-btn{
+    width:100%;
+    margin:0 0 15px;
+}
+
+.table-container{
+    width:100%;
+}
+
+.table-container table{
+    min-width:700px;
+}
 }
