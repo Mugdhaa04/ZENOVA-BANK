@@ -10,7 +10,7 @@ function AccountReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/accounts")
+    fetch("http://localhost:5000/api/accounts")
       .then((res) => res.json())
       .then((data) => setAccounts(data));
   }, []);
@@ -23,17 +23,17 @@ function AccountReport() {
     const confirmDelete = window.confirm("Are you sure?");
     if (!confirmDelete) return;
 
-    await fetch(`http://localhost:3001/accounts/${id}`, {
+    await fetch(`http://localhost:5000/api/accounts/${id}`, {
       method: "DELETE",
     });
 
-    setAccounts((prev) => prev.filter((acc) => acc.id !== id));
+    setAccounts((prev) => prev.filter((acc) => acc._id !== id));
   };
 
   const toggleStatus = (id) => {
     setAccounts((prev) =>
       prev.map((acc) =>
-        acc.id === id ? { ...acc, active: !acc.active } : acc
+        acc._id === id ? { ...acc, active: !acc.active } : acc
       )
     );
   };
@@ -91,8 +91,8 @@ function AccountReport() {
 
           <tbody>
             {filteredData.map((acc) => (
-              <tr key={acc.id}>
-                <td>{acc.id}</td>
+              <tr key={acc._id}>
+                <td>{acc._id}</td>
                 <td>{acc.name}</td>
 
                 <td>
@@ -134,7 +134,7 @@ function AccountReport() {
 
                   <button
                     className="icon-btn status"
-                    onClick={() => toggleStatus(acc.id)}
+                    onClick={() => toggleStatus(acc._id)}
                   >
                     <i
                       className={
@@ -147,7 +147,7 @@ function AccountReport() {
 
                   <button
                     className="icon-btn delete"
-                    onClick={() => handleDelete(acc.id)}
+                    onClick={() => handleDelete(acc._id)}
                   >
                     <i className="fas fa-trash"></i>
                   </button>

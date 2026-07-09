@@ -5,7 +5,7 @@ function KycReport() {
   const [kycData, setKycData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/kyc")
+    fetch("http://localhost:5000/api/kyc")
       .then((res) => res.json())
       .then((data) => setKycData(Array.isArray(data) ? data : []))
       .catch((err) => console.log(err));
@@ -118,8 +118,8 @@ function KycReport() {
             <tbody>
               {kycData.length > 0 ? (
                 kycData.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
+                  <tr key={item._id}>
+                    <td>{item._id}</td>
                     <td>{item.documentType}</td>
                     <td>{item.documentNumber}</td>
                     <td>

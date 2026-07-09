@@ -13,7 +13,7 @@ function TransferReport() {
   const acc = location.state;
 
   useEffect(() => {
-    fetch("http://localhost:3001/transfers")
+    fetch("http://localhost:5000/api/transfers")
       .then(res => res.json())
       .then(res => {
         if (Array.isArray(res)) {
@@ -21,7 +21,8 @@ function TransferReport() {
         } else {
           setData([]);
         }
-      });
+      })
+      .catch(err => console.log(err));
   }, []);
 
   const filtered = data.filter(item =>
@@ -33,28 +34,31 @@ function TransferReport() {
   return (
     <div className="transfer-page">
 
-      {/* TITLE */}
       <div className="transfer-title">
-        Transfer Report of Account Number : {acc?.id}
+        Transfer Report of Account Number : {acc?._id || acc?.id}
       </div>
 
       <div className="report-container">
 
-        {/* SEARCH */}
         <div className="search-box">
           <label>Search :</label>
+
           <input
             type="text"
             placeholder="Search Transfer"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+
           <button>Search</button>
-          <button onClick={() => setSearch("")}>Reset</button>
+
+          <button onClick={() => setSearch("")}>
+            Reset
+          </button>
         </div>
 
-        {/* TABLE */}
         <table>
+
           <thead>
             <tr>
               <th>ID</th>
@@ -71,9 +75,12 @@ function TransferReport() {
           </thead>
 
           <tbody>
+
             {filtered.map((t) => (
-              <tr key={t.id}>
-                <td>{t.id}</td>
+
+              <tr key={t._id}>
+
+                <td>{t._id}</td>
                 <td>{t.date}</td>
                 <td>{t.amount}</td>
                 <td>{t.beneficiary}</td>
@@ -84,28 +91,37 @@ function TransferReport() {
                 <td>{t.type}</td>
 
                 <td>
+
                   <button
                     className="icon-btn view"
                     onClick={() =>
-                      navigate("/transfer-details", { state: t })
+                      navigate(`/transfer-details/${t._id}`)
                     }
                   >
                     👁
                   </button>
+
                 </td>
+
               </tr>
+
             ))}
+
           </tbody>
+
         </table>
 
-        {/* PRINT BUTTON */}
         <div className="bottom-bar">
-          <button className="print-btn" onClick={() => window.print()}>
+          <button
+            className="print-btn"
+            onClick={() => window.print()}
+          >
             Print Page
           </button>
         </div>
 
       </div>
+
     </div>
   );
 }

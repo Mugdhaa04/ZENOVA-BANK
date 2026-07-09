@@ -22,7 +22,7 @@ function DepositWithdraw() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3001/transactions", {
+    fetch("http://localhost:5000/api/transactions/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -59,7 +59,12 @@ function DepositWithdraw() {
 
           <div className="form-row">
             <label>Account Number :</label>
-            <select name="accountNumber" value={formData.accountNumber} onChange={handleChange} required>
+            <select
+              name="accountNumber"
+              value={formData.accountNumber}
+              onChange={handleChange}
+              required
+            >
               <option value="">Select Account Number</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -69,7 +74,12 @@ function DepositWithdraw() {
 
           <div className="form-row">
             <label>Transaction Type :</label>
-            <select name="transactionType" value={formData.transactionType} onChange={handleChange} required>
+            <select
+              name="transactionType"
+              value={formData.transactionType}
+              onChange={handleChange}
+              required
+            >
               <option value="">Select Type</option>
               <option value="Deposit">Deposit</option>
               <option value="Withdraw">Withdraw</option>
@@ -78,7 +88,12 @@ function DepositWithdraw() {
 
           <div className="form-row">
             <label>Transfer Method :</label>
-            <select name="transferMethod" value={formData.transferMethod} onChange={handleChange} required>
+            <select
+              name="transferMethod"
+              value={formData.transferMethod}
+              onChange={handleChange}
+              required
+            >
               <option value="">Select Transfer Method</option>
               <option value="Cash">Cash</option>
               <option value="ATM">ATM</option>
@@ -121,7 +136,6 @@ function DepositWithdraw() {
             ></textarea>
           </div>
 
-          {/* BUTTONS LEFT SIDE */}
           <div className="btn-group">
             <button type="submit" className="submit-btn">Submit</button>
             <button type="reset" className="reset-btn">Reset</button>

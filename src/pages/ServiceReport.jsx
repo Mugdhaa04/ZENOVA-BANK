@@ -9,18 +9,18 @@ function ServiceReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/services")
+    fetch("http://localhost:5000/api/services")
       .then(res => res.json())
-      .then(data => setServices(data))
+      .then(data => setServices(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/services/${id}`, {
+    fetch(`http://localhost:5000/api/services/${id}`, {
       method: "DELETE"
     })
     .then(() => {
-      setServices(services.filter(item => item.id !== id));
+      setServices(services.filter(item => item._id !== id));
     });
   };
 
@@ -28,10 +28,8 @@ function ServiceReport() {
     (item.name || "").toLowerCase().includes(search.toLowerCase())
   );
 
-  // ---- Icon helper ----
   const getIcon = (item) => {
-    // If saved image is a file name (from predefined icons), prepend /images/
-    if(item.image && !item.image.startsWith("/images/")) {
+    if (item.image && !item.image.startsWith("/images/")) {
       return `/images/${item.image}`;
     }
     return item.image || "/images/bank.png";
@@ -55,7 +53,11 @@ function ServiceReport() {
         />
 
         <button className="search-btn">Search</button>
-        <button className="reset-btn" onClick={() => setSearch("")}>
+
+        <button
+          className="reset-btn"
+          onClick={() => setSearch("")}
+        >
           Reset
         </button>
       </div>
@@ -80,9 +82,9 @@ function ServiceReport() {
           <tbody>
 
             {filteredServices.map((item) => (
-              <tr key={item.id}>
+              <tr key={item._id}>
 
-                <td>{item.id}</td>
+                <td>{item._id}</td>
 
                 <td>
                   <img
@@ -95,19 +97,21 @@ function ServiceReport() {
                 <td>{item.name}</td>
 
                 <td>
-                  <button 
+
+                  <button
                     className="edit-btn"
-                    onClick={() => navigate(`/add-services/${item.id}`)}
+                    onClick={() => navigate(`/add-services/${item._id}`)}
                   >
                     ✏️
                   </button>
 
-                  <button 
+                  <button
                     className="delete-btn"
-                    onClick={() => handleDelete(item.id)}
+                    onClick={() => handleDelete(item._id)}
                   >
                     🗑
                   </button>
+
                 </td>
 
               </tr>

@@ -14,9 +14,9 @@ function TransferForm() {
     description: ""
   });
 
-  const [error, setError] = useState(""); // 🔥 error state
+  const [error, setError] = useState("");
 
-  const availableBalance = 10000; // 🔥 demo balance
+  const availableBalance = 10000;
 
   const handleChange = (e) => {
     setData({
@@ -28,33 +28,38 @@ function TransferForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 🔥 VALIDATION
     if (Number(data.amount) > availableBalance) {
       setError("Insufficient Balance ❌");
       return;
-    } else {
-      setError("");
     }
 
-    await fetch("http://localhost:3001/transfers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+    setError("");
 
-    alert("Transfer Successful ✅");
+    try {
+      await fetch("http://localhost:5000/api/transfers/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
 
-    setData({
-      accountNumber: "",
-      transferType: "",
-      amount: "",
-      date: "",
-      description: ""
-    });
+      alert("Transfer Successful ✅");
 
-    navigate("/transfer-report");
+      setData({
+        accountNumber: "",
+        transferType: "",
+        amount: "",
+        date: "",
+        description: ""
+      });
+
+      navigate("/transfer-report");
+
+    } catch (error) {
+      console.log(error);
+      alert("Error while transferring");
+    }
   };
 
   const handleReset = () => {
@@ -81,7 +86,6 @@ function TransferForm() {
 
       <div className="form-container">
 
-        {/* 🔥 Error message */}
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         <form onSubmit={handleSubmit}>
@@ -103,7 +107,7 @@ function TransferForm() {
               value={data.transferType}
               onChange={handleChange}
             >
-              <option>Select Type</option>
+              <option value="">Select Type</option>
               <option>NEFT</option>
               <option>RTGS</option>
               <option>IMPS</option>

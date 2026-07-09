@@ -8,17 +8,17 @@ function AdminReport() {
   const [finalSearch, setFinalSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3001/users")
+    fetch("http://localhost:5000/api/users")
       .then(res => res.json())
       .then(data => setUsers(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/users/${id}`, {
+    fetch(`http://localhost:5000/api/users/${id}`, {
       method: "DELETE"
     }).then(() => {
-      setUsers(users.filter(item => item.id !== id));
+      setUsers(users.filter(item => item._id !== id));
     });
   };
 
@@ -66,7 +66,6 @@ function AdminReport() {
         </button>
       </div>
 
-      {/* TABLE WRAPPER */}
       <div className="table-wrapper">
 
         <table>
@@ -86,9 +85,9 @@ function AdminReport() {
 
             {filteredData.length > 0 ? (
               filteredData.map((item) => (
-                <tr key={item.id}>
+                <tr key={item._id}>
 
-                  <td>{item.id}</td>
+                  <td>{item._id}</td>
                   <td>{item.name}</td>
                   <td>{item.mobile}</td>
                   <td>{item.email}</td>
@@ -99,7 +98,7 @@ function AdminReport() {
 
                     <button
                       className="delete"
-                      onClick={() => handleDelete(item.id)}
+                      onClick={() => handleDelete(item._id)}
                     >
                       🗑
                     </button>

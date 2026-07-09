@@ -10,19 +10,19 @@ function CustomerReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/users")
+    fetch("http://localhost:5000/api/users")
       .then(res => res.json())
       .then(data => setCustomers(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
-  // 🔥 DELETE FUNCTION
+  // DELETE FUNCTION
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/users/${id}`, {
+    fetch(`http://localhost:5000/api/users/${id}`, {
       method: "DELETE"
     })
     .then(() => {
-      setCustomers(customers.filter(item => item.id !== id));
+      setCustomers(customers.filter(item => item._id !== id));
     });
   };
 
@@ -49,15 +49,15 @@ function CustomerReport() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button 
+        <button
           className="search-btn"
           onClick={() => setFinalSearch(search)}
         >
           Search
         </button>
 
-        <button 
-          className="reset-btn" 
+        <button
+          className="reset-btn"
           onClick={() => {
             setSearch("");
             setFinalSearch("");
@@ -67,7 +67,7 @@ function CustomerReport() {
         </button>
       </div>
 
-      <button 
+      <button
         className="add-btn"
         onClick={() => navigate("/add-user")}
       >
@@ -92,13 +92,13 @@ function CustomerReport() {
           <tbody>
 
             {filteredCustomers.map((item) => (
-              <tr key={item.id}>
+              <tr key={item._id}>
 
-                <td>{item.id}</td>
+                <td>{item._id}</td>
 
                 <td>
-                  {item.name 
-                    ? item.name 
+                  {item.name
+                    ? item.name
                     : `${item.firstName || ""} ${item.lastName || ""}`
                   }
                 </td>
@@ -110,16 +110,16 @@ function CustomerReport() {
                 <td>{item.city}</td>
 
                 <td>
-                  <button 
+                  <button
                     className="edit-btn"
-                    onClick={() => navigate(`/add-user/${item.id}`)}
+                    onClick={() => navigate(`/add-user/${item._id}`)}
                   >
                     ✏️
                   </button>
 
-                  <button 
+                  <button
                     className="delete-btn"
-                    onClick={() => handleDelete(item.id)}
+                    onClick={() => handleDelete(item._id)}
                   >
                     🗑
                   </button>

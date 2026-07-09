@@ -25,7 +25,7 @@ const AddAccount = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3001/accounts", {
+    fetch("http://localhost:5000/api/accounts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

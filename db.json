@@ -605,6 +605,20 @@
       "ifsc": "",
       "bankName": "",
       "id": 3
+    },
+    {
+      "name": "MUGDHA VIJAYKUMAR SHINDE",
+      "mobile": "09373511516",
+      "email": "mugdhashinde27@gmail.com",
+      "address": "KarsaKatgaonLatur",
+      "city": "pune",
+      "state": "21",
+      "country": "India",
+      "accountNumber": "657849809887788",
+      "accountType": "Saving Account",
+      "ifsc": "SBIN0001234",
+      "bankName": "SBI",
+      "id": 4
     }
   ]
 }

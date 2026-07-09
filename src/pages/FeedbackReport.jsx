@@ -8,17 +8,17 @@ function FeedbackReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/feedback")
+    fetch("http://localhost:5000/api/feedback")
       .then(res => res.json())
       .then(data => setFeedbackData(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/feedback/${id}`, {
+    fetch(`http://localhost:5000/api/feedback/${id}`, {
       method: "DELETE"
     }).then(() => {
-      setFeedbackData(feedbackData.filter(item => item.id !== id));
+      setFeedbackData(feedbackData.filter(item => item._id !== id));
     });
   };
 
@@ -52,9 +52,9 @@ function FeedbackReport() {
 
               {feedbackData.length > 0 ? (
                 feedbackData.map((item) => (
-                  <tr key={item.id}>
+                  <tr key={item._id}>
 
-                    <td>{item.id}</td>
+                    <td>{item._id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.rating}</td>
@@ -70,7 +70,7 @@ function FeedbackReport() {
 
                       <button
                         className="delete"
-                        onClick={() => handleDelete(item.id)}
+                        onClick={() => handleDelete(item._id)}
                       >
                         🗑
                       </button>

@@ -18,7 +18,7 @@ setForm({...form,[e.target.name]:e.target.value})
 const handleSubmit=async(e)=>{
 e.preventDefault()
 
-await axios.post("http://localhost:3001/feedback",form)
+await axios.post("http://localhost:5000/api/feedback/add",form)
 
 alert("Feedback Submitted Successfully")
 
@@ -94,4 +94,4 @@ return(
 
 }
 
-export default Feedback
+export default Feedback;
