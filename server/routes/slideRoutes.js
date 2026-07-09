@@ -7,7 +7,7 @@ const {
   getSlideById,
   updateSlide,
   deleteSlide
-} = require("../controllers/slideController");
+} = require("../controllers/SlideController");
 
 router.post("/add", addSlide);
 router.get("/", getSlides);
