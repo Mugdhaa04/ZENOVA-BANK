@@ -13,7 +13,7 @@ function TransferReport() {
   const acc = location.state;
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/transfers")
+    fetch("https://zenova-bank-backend.onrender.com/api/transfers")
       .then(res => res.json())
       .then(res => {
         if (Array.isArray(res)) {

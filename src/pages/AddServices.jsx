@@ -16,7 +16,7 @@ const data = {
   image: image ? `/images/${image.name}` : getIcon()
 };
 
-fetch("http://localhost:5000/api/services/add", {
+fetch("https://zenova-bank-backend.onrender.com/api/services/add", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"

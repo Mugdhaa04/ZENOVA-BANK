@@ -36,7 +36,7 @@ function TransferForm() {
     setError("");
 
     try {
-      await fetch("http://localhost:5000/api/transfers/add", {
+      await fetch("https://zenova-bank-backend.onrender.com/api/transfers/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

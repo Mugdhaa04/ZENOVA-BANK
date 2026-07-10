@@ -8,14 +8,14 @@ function FeedbackReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/feedback")
+    fetch("https://zenova-bank-backend.onrender.com/api/feedback")
       .then(res => res.json())
       .then(data => setFeedbackData(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/feedback/${id}`, {
+    fetch(`https://zenova-bank-backend.onrender.com/api/feedback/${id}`, {
       method: "DELETE"
     }).then(() => {
       setFeedbackData(feedbackData.filter(item => item._id !== id));

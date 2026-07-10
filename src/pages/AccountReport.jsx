@@ -10,7 +10,7 @@ function AccountReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/accounts")
+    fetch("https://zenova-bank-backend.onrender.com/api/accounts")
       .then((res) => res.json())
       .then((data) => setAccounts(data));
   }, []);
@@ -23,7 +23,7 @@ function AccountReport() {
     const confirmDelete = window.confirm("Are you sure?");
     if (!confirmDelete) return;
 
-    await fetch(`http://localhost:5000/api/accounts/${id}`, {
+    await fetch(`https://zenova-bank-backend.onrender.com/api/accounts/${id}`, {
       method: "DELETE",
     });
 

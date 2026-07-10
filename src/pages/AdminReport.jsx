@@ -8,14 +8,14 @@ function AdminReport() {
   const [finalSearch, setFinalSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
+    fetch("https://zenova-bank-backend.onrender.com/api/users")
       .then(res => res.json())
       .then(data => setUsers(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/users/${id}`, {
+    fetch(`https://zenova-bank-backend.onrender.com/api/users/${id}`, {
       method: "DELETE"
     }).then(() => {
       setUsers(users.filter(item => item._id !== id));

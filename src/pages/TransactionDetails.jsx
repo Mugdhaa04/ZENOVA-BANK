@@ -8,7 +8,7 @@ function TransactionDetails() {
   const [transaction, setTransaction] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/transactions/${id}`)
+    fetch(`https://zenova-bank-backend.onrender.com/api/transactions/${id}`)
       .then((res) => res.json())
       .then((data) => setTransaction(data))
       .catch((err) => console.log(err));

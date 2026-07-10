@@ -9,14 +9,14 @@ function ServiceReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/services")
+    fetch("https://zenova-bank-backend.onrender.com/api/services")
       .then(res => res.json())
       .then(data => setServices(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/services/${id}`, {
+    fetch(`https://zenova-bank-backend.onrender.com/api/services/${id}`, {
       method: "DELETE"
     })
     .then(() => {

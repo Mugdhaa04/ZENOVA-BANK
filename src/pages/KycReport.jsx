@@ -5,7 +5,7 @@ function KycReport() {
   const [kycData, setKycData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/kyc")
+    fetch("https://zenova-bank-backend.onrender.com/api/kyc")
       .then((res) => res.json())
       .then((data) => setKycData(Array.isArray(data) ? data : []))
       .catch((err) => console.log(err));

@@ -10,7 +10,7 @@ function CustomerReport() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
+    fetch("https://zenova-bank-backend.onrender.com/api/users")
       .then(res => res.json())
       .then(data => setCustomers(Array.isArray(data) ? data : []))
       .catch(err => console.log(err));
@@ -18,7 +18,7 @@ function CustomerReport() {
 
   // DELETE FUNCTION
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/users/${id}`, {
+    fetch(`https://zenova-bank-backend.onrender.com/api/users/${id}`, {
       method: "DELETE"
     })
     .then(() => {

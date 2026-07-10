@@ -22,7 +22,7 @@ function AddTransaction() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:5000/api/transactions/add", {
+    await fetch("https://zenova-bank-backend.onrender.com/api/transactions/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

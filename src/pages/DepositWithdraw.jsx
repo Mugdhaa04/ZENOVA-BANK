@@ -22,7 +22,7 @@ function DepositWithdraw() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/api/transactions/add", {
+    fetch("https://zenova-bank-backend.onrender.com/api/transactions/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -27,7 +27,7 @@ function AddUser() {
 
     // Backend POST request
     try {
-      await fetch("http://localhost:5000/api/users/add", {
+      await fetch("https://zenova-bank-backend.onrender.com/api/users/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
